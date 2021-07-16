@@ -11,7 +11,12 @@ module.exports = {
     twitterUsername: "@larsvdniet",
   },
   plugins: [
-    "gatsby-plugin-transition-link",
+    {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+          layout: require.resolve(`./src/layouts/DefaultLayout/DefaultLayout.tsx`)
+        }
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",

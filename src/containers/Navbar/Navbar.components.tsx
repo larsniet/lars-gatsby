@@ -25,13 +25,11 @@ export const NavbarItems = styled.div`
     margin-left: auto;
 `;
 
-export const CustomLink = styled(LinkCustom)`
+export const CustomLinkUnderline = styled(LinkCustom)`
     position: relative;
     margin: 0 2rem;
     font-family: "Futura", georgia, serif;
-`;
 
-export const CustomLinkUnderline = styled(CustomLink)`
     &:before {
         content: '';
         position: absolute;

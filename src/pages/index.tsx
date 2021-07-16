@@ -1,10 +1,26 @@
 import React from "react";
-import Layout from "../layouts/DefaultLayout/DefaultLayout";
+import { Container, Row, Col } from '../lib/Grid';
+import { Project } from '../components/Project/Project'
+
+const berenjacht = require('../images/projects/berenjacht.png');
 
 const index: React.FC<Record<string, never>> = () => (
-  <Layout>
-    <div><h1>Dit is de index page</h1></div>
-  </Layout>
+  <Container>
+    <Row>
+      <Col md={4}>
+        <Project 
+          img={berenjacht}
+          text={"Berenjachtkaart was een leuke uitdaging"}
+        />
+      </Col>
+      <Col md={4}>
+        <p>Haaoidsfasoidafj</p>
+      </Col>
+      <Col md={4}>
+        <p>Haaoidsfasoidafj</p>
+      </Col>
+    </Row>
+  </Container>
 );
 
 export default index;
