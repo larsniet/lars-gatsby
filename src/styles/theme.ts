@@ -8,6 +8,7 @@ const red = '#df5252';
 const green = '#6d9846';
 const white = '#ffffff';
 const offWhite = '#f5f5f5';
+const offWhiteBackground = '#f5f5f5c7';
 const navyBlue = '#14213d';
 const yellow = '#fca311';
 
@@ -25,7 +26,7 @@ const bold = 700;
 const GlobalHeadingSettings = {
     height: '1em',
     spacing: '0em',
-    color: white,
+    color: black,
     weight: bold,
     marginBottom: '0.66em',
 };
@@ -39,7 +40,7 @@ type Colors = {
     lightgray: string;
     lightgray2: string;
     white: string;
-    offWhite: string;
+    offWhiteBackground: string;
 };
 type Fonts = {
     heading: string;
@@ -151,7 +152,7 @@ const breakpoints: Breakpoints = {
 };
 const theme: Theme = {
     colors: {
-        background: white,
+        background: offWhite,
         primary: navyBlue,
         secondary: green,
         tertiary: red,
@@ -160,7 +161,7 @@ const theme: Theme = {
         lightgray,
         lightgray2,
         white,
-        offWhite,
+        offWhiteBackground,
     },
     fonts: {
         heading,

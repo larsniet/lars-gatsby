@@ -4,7 +4,7 @@ import theme from '../styles/theme';
 const { mediaQueryMin, containerWidth } = theme;
 
 const Container = styled.section<{ align?: string }>`
-    margin: 0 4rem;
+    margin: 0 6rem;
     padding: 0;
     display: flex;
     flex-direction: column;

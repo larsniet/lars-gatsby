@@ -9,7 +9,7 @@ export const Nav = styled.nav`
     position: fixed;
     width: 100%;
     z-index: 10000;
-    background: #ffffffd8;
+    background: ${colors.offWhiteBackground};
 `;
 
 export const NavbarContainer = styled(Container)`
