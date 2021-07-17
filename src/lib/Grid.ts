@@ -15,7 +15,6 @@ export const Container = styled(ContainerBase)<{
     fluid?: boolean;
 }>`
     max-width: unset !important;
-    margin: 1em ${(props) => (props.fluid ? '0' : container.sm)} !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
 

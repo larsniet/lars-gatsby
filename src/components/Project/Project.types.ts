@@ -1,4 +1,5 @@
 export interface ProjectProps {
-  img: string;
-  text: string;
+  imgSrc: string;
+  title: string;
+  sub: string;
 }

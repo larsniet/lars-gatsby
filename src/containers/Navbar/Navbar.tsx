@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Logo,
+  Nav,
+  NavbarLogo,
   NavbarContainer,
   NavbarContent,
   NavbarItems,
@@ -12,17 +13,17 @@ const logo = require('../../images/lvdnlogosmall.png').default
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <NavbarContainer>
-      <NavbarContent>
-        <Logo>
-          <img src={logo} alt="Lars van der Niet logo" />
-        </Logo>
-        <NavbarItems>
-          <CustomLinkUnderline url={'/'} effect="fade" lenght={.3}>Werk</CustomLinkUnderline>
-          <CustomLinkUnderline url={'/about'} effect="fade" lenght={.3}>Over Lars</CustomLinkUnderline>
-        </NavbarItems>
-      </NavbarContent>
-    </NavbarContainer>
+    <Nav>
+      <NavbarContainer>
+        <NavbarContent>
+          <NavbarLogo>Lars van der Niet</NavbarLogo>
+          <NavbarItems>
+            <CustomLinkUnderline url={'/'} effect="fade" lenght={.3}>Werk</CustomLinkUnderline>
+            <CustomLinkUnderline url={'/about'} effect="fade" lenght={.3}>Over Lars</CustomLinkUnderline>
+          </NavbarItems>
+        </NavbarContent>
+      </NavbarContainer>
+    </Nav>
   );
 };
 

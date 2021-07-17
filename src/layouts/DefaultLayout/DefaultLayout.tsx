@@ -14,8 +14,8 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
       <GlobalStyles />
       <Navbar />
       <Main>
-        <TypographyClassStyling />
         <Container>
+          <TypographyClassStyling />
           {children}
         </Container>
       </Main>

@@ -1,24 +1,24 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { LinkCustom } from '../../components/Transitions/LinkCustom'
-import theme from '../../styles/theme';
+import theme from '../../styles/theme'
+import Container from '../../containers/Container'
 
 const { colors } = theme;
 
-export const NavbarContainer = styled.nav<{
-    atScrollTop?: boolean;
-    background?: boolean;
-}>`
+export const Nav = styled.nav`
     position: fixed;
     width: 100%;
     z-index: 10000;
-    background: transparent;
-    padding: 3rem 0;
+    background: #ffffffd8;
+`;
+
+export const NavbarContainer = styled(Container)`
+    padding: 5rem 0;
 `;
 
 export const NavbarContent = styled.div`
     display: flex;
     align-items: center;
-    padding: 0 3rem;
 `;
 
 export const NavbarItems = styled.div`
@@ -28,7 +28,8 @@ export const NavbarItems = styled.div`
 export const CustomLinkUnderline = styled(LinkCustom)`
     position: relative;
     margin: 0 2rem;
-    font-family: "Futura", georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
 
     &:before {
         content: '';
@@ -48,10 +49,10 @@ export const CustomLinkUnderline = styled(LinkCustom)`
     }
 `;
 
-export const Logo = styled.span`
-    display: block;
-    width: 150px;
-
+export const NavbarLogo = styled.h5`
+    color: ${colors.secondary};
+    font-weight: 700;
+    margin-bottom: 0;
 `;
 
 

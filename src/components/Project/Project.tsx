@@ -1,12 +1,22 @@
 import React from 'react';
 import { ProjectProps } from './Project.types'
+import { 
+  ProjectContainer,
+  ProjectTextContainer,
+  ProjectImage,
+  ProjectTitle,
+  ProjectSub
+} from './Project.components'
 
-export const Project: React.FC<ProjectProps> = ({ img, text }) => {
+export const Project: React.FC<ProjectProps> = ({ imgSrc, title, sub }) => {
   return (
-    <div>
-      <img src={img} />
-      <p>{text}</p>
-    </div>
+    <ProjectContainer>
+      <ProjectImage src={imgSrc} />
+      <ProjectTextContainer>
+        <ProjectTitle>{ title }</ProjectTitle>
+        <ProjectSub>{ sub }</ProjectSub>
+      </ProjectTextContainer>
+    </ProjectContainer>
   );
 }
 

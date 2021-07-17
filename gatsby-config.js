@@ -17,27 +17,18 @@ module.exports = {
           layout: require.resolve(`./src/layouts/DefaultLayout/DefaultLayout.tsx`)
         }
     },
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-190082437-1",
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-transformer-remark",
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -57,10 +48,19 @@ module.exports = {
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
-        typekit: {
-          id: process.env.TYPEKIT_ID,
-        },
-      },
+        google: {
+          families: ['Montserrat']
+        }
+      }
     },
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-gatsby-cloud",
+    "gatsby-plugin-image",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-transformer-remark",
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
   ],
 };

@@ -1,26 +1,33 @@
 import React from "react";
-import { Container, Row, Col } from '../lib/Grid';
+import { Row, Col } from '../lib/Grid';
 import { Project } from '../components/Project/Project'
 
-const berenjacht = require('../images/projects/berenjacht.png');
+const berenjacht = require('../images/projects/berenjacht.png').default;
+const lemonbike = require('../images/projects/lemonbike.jpg').default;
 
 const index: React.FC<Record<string, never>> = () => (
-  <Container>
-    <Row>
-      <Col md={4}>
-        <Project 
-          img={berenjacht}
-          text={"Berenjachtkaart was een leuke uitdaging"}
-        />
-      </Col>
-      <Col md={4}>
-        <p>Haaoidsfasoidafj</p>
-      </Col>
-      <Col md={4}>
-        <p>Haaoidsfasoidafj</p>
-      </Col>
-    </Row>
-  </Container>
+  <Row justify="between">
+    <Col md={5}>
+      <Project 
+        imgSrc={lemonbike}
+        title={"Maak het verschil"}
+        sub={"Lemonbike"} />
+      <Project 
+        imgSrc={berenjacht}
+        title={"Berenjachtkaart was een leuke uitdaging"}
+        sub={"Berenjachtkaart was een leuke uitdaging"}      />
+    </Col>
+    <Col md={5}>
+      <Project 
+        imgSrc={berenjacht}
+        title={"Berenjachtkaart was een leuke uitdaging"}
+        sub={"Berenjachtkaart was een leuke uitdaging"}      />
+      <Project 
+        imgSrc={berenjacht}
+        title={"Berenjachtkaart was een leuke uitdaging"}
+        sub={"Berenjachtkaart was een leuke uitdaging"}      />
+    </Col>
+  </Row>
 );
 
 export default index;

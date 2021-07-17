@@ -5,15 +5,16 @@ const lightgray = '#e5e5e5';
 const lightgray2 = '#E7E7E7';
 const mediumgray = '#262626';
 const red = '#df5252';
+const green = '#6d9846';
 const white = '#ffffff';
 const offWhite = '#f5f5f5';
 const navyBlue = '#14213d';
 const yellow = '#fca311';
 
 // Fonts
-const heading = 'Nunito';
-const paragraph = 'Nunito';
-const menu = 'Cousine';
+const heading = 'Montserrat';
+const paragraph = 'Montserrat';
+const menu = 'Montserrat';
 
 // Font weights
 const light = 300;
@@ -24,7 +25,7 @@ const bold = 700;
 const GlobalHeadingSettings = {
     height: '1em',
     spacing: '0em',
-    color: darkgray,
+    color: white,
     weight: bold,
     marginBottom: '0.66em',
 };
@@ -152,7 +153,7 @@ const theme: Theme = {
     colors: {
         background: white,
         primary: navyBlue,
-        secondary: yellow,
+        secondary: green,
         tertiary: red,
         black,
         mediumgray,
