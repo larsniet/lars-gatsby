@@ -4,8 +4,8 @@ import HeadScripts from '../../lib/getHeadScripts';
 import { Main } from './DefaultLayout.components';
 import LayoutProps from './DefaultLayout.types';
 import Navbar from '../../containers/Navbar/Navbar';
+import Footer from '../../containers/Footer/Footer';
 import Container from '../../containers/Container';
-// import Footer from '../Footer/Footer';
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
   return (
@@ -19,6 +19,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
           {children}
         </Container>
       </Main>
+      <Footer />
     </>
   );
 };

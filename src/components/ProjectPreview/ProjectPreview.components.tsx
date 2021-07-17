@@ -17,7 +17,8 @@ export const ProjectPreviewContainer = styled.div<{ img: string }>`
   position: relative;
   text-align: center;
   height: auto;
-  width: 100%;
+  width: 93%;
+  margin: 2em auto;
   height: 400px;
   transition: .3s all ease;
 

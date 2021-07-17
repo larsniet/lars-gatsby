@@ -4,6 +4,9 @@ import { ProjectPreview } from '../components/ProjectPreview/ProjectPreview'
 import Lottie from 'react-lottie';
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
+import theme from '../styles/theme'
+
+const { mediaQueryMin } = theme
 
 const berenjacht = require('../images/projects/berenjacht.png').default;
 const lemonbike = require('../images/projects/lemonbike.jpg').default;
@@ -17,6 +20,12 @@ const animOptions = {
   }
 }
 
+const OffsetCol = styled(Col)`
+  @media (${mediaQueryMin.tablet}) {
+    top: -100px;
+  }
+`;
+
 const TextContainer = styled.div`
   position: absolute;
   top: 50%;
@@ -27,7 +36,11 @@ const TextContainer = styled.div`
 
 const Title = styled.h1`
   margin: 0;
-  font-weight: bold;
+  font-weight: 700;
+
+  &:nth-last-child(2) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const SubTitle = styled.h5`
@@ -58,7 +71,7 @@ const index: React.FC<Record<string, never>> = () => (
       </Col>
     </Row>
     <Row justify="between">
-      <Col md={5}>
+      <Col md={6}>
         <ProjectPreview 
           imgSrc={lemonbike}
           title={"Maak het verschil"}
@@ -68,7 +81,7 @@ const index: React.FC<Record<string, never>> = () => (
           title={"Berenjachtkaart was een leuke uitdaging"}
           sub={"Berenjachtkaart was een leuke uitdaging"}      />
       </Col>
-      <Col md={5}>
+      <OffsetCol md={6}>
         <ProjectPreview 
           imgSrc={berenjacht}
           title={"Berenjachtkaart was een leuke uitdaging"}
@@ -77,7 +90,7 @@ const index: React.FC<Record<string, never>> = () => (
           imgSrc={berenjacht}
           title={"Berenjachtkaart was een leuke uitdaging"}
           sub={"Berenjachtkaart was een leuke uitdaging"}      />
-      </Col>
+      </OffsetCol>
     </Row>
   </>
 );

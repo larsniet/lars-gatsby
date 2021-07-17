@@ -13,9 +13,9 @@ const navyBlue = '#14213d';
 const yellow = '#fca311';
 
 // Fonts
-const heading = 'Montserrat';
-const paragraph = 'Montserrat';
-const menu = 'Montserrat';
+const heading = 'Lato';
+const paragraph = 'Rubik';
+const menu = 'Rubik';
 
 // Font weights
 const light = 300;
@@ -125,6 +125,7 @@ export type Typography = {
     form: Form;
 };
 type Breakpoints = {
+    tablet: string;
     xs: string;
     sm: string;
     md: string;
@@ -143,6 +144,7 @@ interface Theme {
     mediaQueryMin: Breakpoints;
 }
 const breakpoints: Breakpoints = {
+    tablet: '768px',
     xs: '45em',
     sm: '64em',
     md: '85.375em',
@@ -213,7 +215,7 @@ const theme: Theme = {
             spacing: GlobalHeadingSettings.spacing,
             font: heading,
             height: '1.33em',
-            weight: regular,
+            weight: light,
             color: GlobalHeadingSettings.color,
             marginBottom: GlobalHeadingSettings.marginBottom,
         },
@@ -299,6 +301,7 @@ const theme: Theme = {
     breakpointMobileMenu: '68rem',
     breakpoint: breakpoints,
     containerWidth: {
+        tablet: '768px',
         xs: '2vw',
         sm: '4vw',
         md: '8vw',
@@ -306,6 +309,7 @@ const theme: Theme = {
         xl: '15vw',
     },
     mediaQueryMin: {
+        tablet: `min-width: 768px `,
         xs: `min-width: ${breakpoints.xs}`,
         sm: `min-width: ${breakpoints.sm}`,
         md: `min-width: ${breakpoints.md}`,
