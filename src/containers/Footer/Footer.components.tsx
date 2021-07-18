@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import { LinkCustom } from '../../components/Transitions/LinkCustom'
 import theme from '../../styles/theme'
-import Container from '../Container'
 
 const { colors, mediaQueryMin } = theme;
 

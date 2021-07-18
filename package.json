@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "@types/styled-components": "^5.1.11",
     "react-lottie": "^1.2.3"
   }
 }
