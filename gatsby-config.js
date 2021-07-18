@@ -8,7 +8,7 @@ module.exports = {
     titleTemplate: "%s · Web development zonder haken en ogen",
     description:
       "De lokale web developer waar u naar op zoek bent.",
-    url: "https://www.larsvanderniet.nl", // No trailing slash allowed!
+    siteUrl: "https://www.larsvanderniet.nl", // No trailing slash allowed!
     image: "logo.svg", // Path to your image you placed in the 'static' folder
     twitterUsername: "@larsvdniet",
   },
