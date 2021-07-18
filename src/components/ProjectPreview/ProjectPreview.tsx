@@ -36,6 +36,7 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, ti
     nav.style.background = colors.offWhiteBackground;
   }
 
+})
   const bg = `
     center / cover   /* position / size */
     no-repeat        /* repeat */
@@ -44,7 +45,6 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, ti
     content-box      /* clip */
     ${colors.secondary}
   `;
-  })
 
 
   return (
