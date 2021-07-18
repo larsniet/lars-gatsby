@@ -15,6 +15,7 @@ import {
 const { colors } = theme;
 
 export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, title, sub }) => {
+  useEffect(() => {
   let project: HTMLElement = document.getElementById(sub) as HTMLElement;
   let nav: HTMLElement = document.getElementById("nav") as HTMLElement;
 
@@ -43,6 +44,7 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, ti
     content-box      /* clip */
     ${colors.secondary}
   `;
+  })
 
 
   return (
