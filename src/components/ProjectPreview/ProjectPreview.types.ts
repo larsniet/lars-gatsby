@@ -1,5 +1,6 @@
 export interface ProjectPreviewProps {
-  imgSrc: string;
+  href: string;
+  imgSrc: any;
   title: string;
   sub: string;
 }

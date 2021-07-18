@@ -1,4 +1,6 @@
-require("dotenv").config()
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 module.exports = {
   siteMetadata: {
@@ -12,9 +14,17 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-source-datocms",
+      options: {
+        apiToken: 'f51b4da773becee7492542fc4c93bf',
+        preview: false,
+        disableLiveReload: false,
+      },
+    },
+    {
       resolve: "gatsby-plugin-transition-link",
       options: {
-          layout: require.resolve(`./src/layouts/DefaultLayout/DefaultLayout.tsx`)
+          layout: require.resolve('./src/layouts/DefaultLayout/DefaultLayout.tsx')
         }
     },
     {

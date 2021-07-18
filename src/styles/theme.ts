@@ -40,6 +40,7 @@ type Colors = {
     lightgray: string;
     lightgray2: string;
     white: string;
+    offWhite: string;
     offWhiteBackground: string;
 };
 type Fonts = {
@@ -163,6 +164,7 @@ const theme: Theme = {
         lightgray,
         lightgray2,
         white,
+        offWhite,
         offWhiteBackground,
     },
     fonts: {

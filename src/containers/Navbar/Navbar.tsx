@@ -4,16 +4,14 @@ import {
   NavbarLogo,
   NavbarContainer,
   NavbarContent,
-  NavbarItems,
-  CustomLinkUnderline
+  NavbarItems
 } from './Navbar.components'
 import { NavbarProps } from './Navbar.types'
-
-const logo = require('../../images/lvdnlogosmall.png').default
+import { CustomLinkUnderline } from '../../components/Transitions/LinkCustom.components'
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <Nav>
+    <Nav id="nav">
       <NavbarContainer>
         <NavbarContent>
           <NavbarLogo>Lars van der Niet</NavbarLogo>

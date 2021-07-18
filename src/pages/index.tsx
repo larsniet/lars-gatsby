@@ -1,15 +1,16 @@
-import React from "react";
-import { Row, Col } from '../lib/Grid';
+import React from "react"
+import { Row, Col } from '../lib/Grid'
 import { ProjectPreview } from '../components/ProjectPreview/ProjectPreview'
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie'
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
 import theme from '../styles/theme'
+import { graphql } from "gatsby"
 
 const { mediaQueryMin } = theme
 
-const berenjacht = require('../images/projects/berenjacht.png').default;
-const lemonbike = require('../images/projects/lemonbike.jpg').default;
+const berenjacht = require('../images/projects/berenjacht.png').default
+const lemonbike = require('../images/projects/lemonbike.jpg').default
 
 const animOptions = {
   loop: false,
@@ -19,12 +20,6 @@ const animOptions = {
     preserveAspectRatio: 'xMidYMid slice'
   }
 }
-
-const OffsetCol = styled(Col)`
-  @media (${mediaQueryMin.tablet}) {
-    top: -100px;
-  }
-`;
 
 const TextContainer = styled.div`
   position: absolute;
@@ -47,7 +42,45 @@ const SubTitle = styled.h5`
   line-height: 1.3em;
 `;
 
-const index: React.FC<Record<string, never>> = () => (
+const ProjectsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: masonry;
+  column-gap: 2em;
+  row-gap: 2rem;
+
+  @media (${mediaQueryMin.sm}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const TestEl = styled.div`
+  background-color: red;
+  width: 100%;
+  height: 100px;
+`;
+
+type Project = {
+  id: string;
+  slug: string;
+  title: string;
+  company: string;
+  featuredphoto: any;
+};
+
+interface Props {
+  data: {
+    allDatoCmsProject: {
+      edges: {
+          node: Project;
+      }[];
+    };
+  };
+}
+
+const index: React.FC<Props> = ({ data }) => {
+  const { edges: projects } = data.allDatoCmsProject;
+
+  return (
   <>
     <Row>
       <Col>
@@ -70,29 +103,36 @@ const index: React.FC<Record<string, never>> = () => (
         </TextContainer>
       </Col>
     </Row>
-    <Row justify="between">
-      <Col md={6}>
+    <ProjectsWrapper>
+      {projects.map(({ node: project }) => (
         <ProjectPreview 
-          imgSrc={lemonbike}
-          title={"Maak het verschil"}
-          sub={"Lemonbike"} />
-        <ProjectPreview 
-          imgSrc={berenjacht}
-          title={"Berenjachtkaart was een leuke uitdaging"}
-          sub={"Berenjachtkaart was een leuke uitdaging"}      />
-      </Col>
-      <OffsetCol md={6}>
-        <ProjectPreview 
-          imgSrc={berenjacht}
-          title={"Berenjachtkaart was een leuke uitdaging"}
-          sub={"Berenjachtkaart was een leuke uitdaging"}      />
-        <ProjectPreview 
-          imgSrc={berenjacht}
-          title={"Berenjachtkaart was een leuke uitdaging"}
-          sub={"Berenjachtkaart was een leuke uitdaging"}      />
-      </OffsetCol>
-    </Row>
+          key={project.id}
+          href={`/projects/${project.slug}`}
+          imgSrc={project.featuredphoto.fluid}
+          title={project.title}
+          sub={project.company} />
+      ))}
+    </ProjectsWrapper>
   </>
-);
+)};
+
+export const pageQuery = graphql`
+  query PostIndex {
+    allDatoCmsProject {
+      edges {
+        node {
+          id
+          title
+          slug
+          company
+          featuredphoto {
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+        }
+      }
+    }
+  }`
 
 export default index;

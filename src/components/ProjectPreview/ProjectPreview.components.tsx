@@ -1,24 +1,23 @@
 import styled from 'styled-components';
+import BackgroundImage from 'gatsby-background-image'
 
-export const ProjectPreviewImage = styled.div<{ img: string }>`
+export const ProjectPreviewImage = styled(BackgroundImage)`
   transition: .3s all ease;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  background-image: url(${(props) => props.img});
+  z-index: 1;
   background-size: cover;
+  background-repeat: no-repeat;
   background-blend-mode: overlay;
   background-color: #00000030;
 `;
 
-export const ProjectPreviewContainer = styled.div<{ img: string }>`
+export const ProjectPreviewContainer = styled.div`
   overflow: hidden;
-  cursor: pointer;
   position: relative;
   text-align: center;
   height: auto;
-  width: 93%;
-  margin: 2em auto;
+  width: 100%;
   height: 400px;
   transition: .3s all ease;
 
@@ -33,7 +32,7 @@ export const ProjectPreviewTextContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  z-index: 0;
+  z-index: 1;
 `;
 
 export const ProjectPreviewTitle = styled.h3`

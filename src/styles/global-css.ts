@@ -144,6 +144,27 @@ const GlobalStyles = createGlobalStyle`
         font-size: 80%;
     }
     hr { margin: 42px 0; }
+
+    .animateToTop {
+        animation: animateToTop 3s ease;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes animateToTop {
+        0% {
+            top: 0;
+        }
+        50% {
+            top: -300px;
+            height: 100vh;
+            width: 100%;
+        }
+        100% {
+            top: -300px;
+            width: 100vw;
+            height: 100vh;
+        }
+    }
 `;
 
 export { GlobalStyles };

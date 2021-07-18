@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
-import TransitionLink from "gatsby-plugin-transition-link"
-import { gsap } from "gsap"
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { gsap, Power1 } from "gsap";
+import theme from '../../styles/theme'
+import styled, { keyframes } from 'styled-components'
 import { ProjectPreviewProps } from './ProjectPreview.types'
 import { 
   ProjectPreviewContainer,
@@ -11,49 +12,58 @@ import {
   ProjectPreviewSub
 } from './ProjectPreview.components'
 
-const CustomDiv = styled.div`
-  background-color: blue;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  transition: 2s all ease;
-`
+const { colors } = theme;
 
-export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ imgSrc, title, sub }) => {
-  const animateToProject = (exit, node) => {
-    const el = `#overlayimage`;
-    const imagePreview = '#imagePreview';
-    console.log(node);
+export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, title, sub }) => {
+  let project: HTMLElement = document.getElementById(sub) as HTMLElement;
+  let nav: HTMLElement = document.getElementById("nav") as HTMLElement;
 
+  const animateToProject = () => {
+    nav.style.transition = ".5s all ease"
+    nav.style.background = colors.offWhite;
 
-    gsap.timeline({})
-      .to(node, {
-        opacity: 0, 
-        duration: 1.5,
-        ease: "elastic"}
-      )
-      .to(el, {x: 500}, 1.5);
+    project.innerHTML = "";
+    project.style.position = "absolute"
+    project.style.background = "#31a6ca"
+    project.style.zIndex = "999"
+
+    project.classList.toggle("animateToTop");
   }
 
+  const entryAnimation = () => {
+    nav.style.transition = "none"
+    nav.style.background = colors.offWhiteBackground;
+  }
+
+  const bg = `
+    center / cover   /* position / size */
+    no-repeat        /* repeat */
+    fixed            /* attachment */
+    padding-box      /* origin */
+    content-box      /* clip */
+    ${colors.secondary}
+  `;
+
+
   return (
-    <TransitionLink
-      to="/lemonbike"
-      exit={{
-        trigger: ({ exit, node }) => animateToProject(exit, node),
-        length: 3
-      }}
-      entry={{
-        delay: 2.8
-      }}
-    >
-      <ProjectPreviewContainer>
-        <ProjectPreviewImage img={imgSrc} />
+    <AniLink 
+      cover 
+      direction="left"
+      to={href} 
+      hex={colors.secondary}
+      bg={bg}>
+      <ProjectPreviewContainer id={sub}>
+        <ProjectPreviewImage
+          Tag="section"
+          fluid={imgSrc}
+          backgroundColor={`#040e18`}
+        />
         <ProjectPreviewTextContainer>
           <ProjectPreviewTitle>{ title }</ProjectPreviewTitle>
           <ProjectPreviewSub>{ sub }</ProjectPreviewSub>
         </ProjectPreviewTextContainer>
       </ProjectPreviewContainer>
-    </TransitionLink>
+    </AniLink>
   );
 }
 

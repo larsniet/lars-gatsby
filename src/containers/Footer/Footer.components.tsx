@@ -7,6 +7,7 @@ export const FooterContainer = styled.footer`
     position: relative;
     width: 100%;
     height: 400px;
+    margin-top: 120px;
 `;
 
 export const WaveContainer = styled.div`
