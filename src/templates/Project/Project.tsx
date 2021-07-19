@@ -53,7 +53,7 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
                 <p>{project.overview}</p>
               </NormalCol>
             </Row>
-            <Row>
+            <Row style={{ marginBottom: "2em" }}>
               <NormalCol md={6}>
                 <h3>Mijn Taken</h3>
               </NormalCol>

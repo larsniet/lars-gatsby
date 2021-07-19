@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../../containers/Container';
-import { Row, Col } from '../../lib/Grid';
+import { Row, NormalCol } from '../../lib/Grid';
 import { IconContext } from "@react-icons/all-files";
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
@@ -35,10 +35,10 @@ const Footer: React.FC<FooterProps> = () => {
       <FooterContent>
         <Container>
           <Row>
-            <Col md={6}>
+            <NormalCol md={6}>
               <CallToAction>Klaar voor een gesprek?</CallToAction>
-            </Col>
-            <Col md={6}>
+            </NormalCol>
+            <NormalCol md={6}>
               <ContactMe>Om meer te weten te komen, of voor eventuele samenwerkingen, <a href="mailto:lvdnbusiness@icloud.com" target="_blank">laat een mailtje achter</a> of vind me op social media.</ContactMe>
               <IconContext.Provider value={{ color: "white", size: "2em" }}>
                 <SocialsContainer>
@@ -47,7 +47,7 @@ const Footer: React.FC<FooterProps> = () => {
                 </SocialsContainer>
               </IconContext.Provider>
               <BuildBy>Drawings by <a href="" target="_blank">Tejo Zandee</a></BuildBy>
-            </Col>
+            </NormalCol>
           </Row>
         </Container>
       </FooterContent>

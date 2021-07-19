@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer`
 export const WaveContainer = styled.div`
     width: 100%;
     position: absolute;
-    top: -150px;
+    top: -130px;
 `;
 
 export const FooterContent = styled.div`
@@ -21,20 +21,29 @@ export const FooterContent = styled.div`
     width: 100%;
 `;
 
-export const CallToAction = styled.h1`
+export const CallToAction = styled.h2`
     color: #fff;
     margin-top: 1em;
     width: 80%;
+
+    @media (${mediaQueryMin.tablet}) {
+        margin-top: 2em;
+    }
+
+    @media (${mediaQueryMin.sm}) {
+        margin-top: 1em;
+    }
 `;
 
 export const ContactMe = styled.h5`
     color: #fff;
-    letter-spacing: .1rem;
+    letter-spacing: normal;
     font-weight: 100;
     margin-top: 1em;
 
     @media (${mediaQueryMin.tablet}) {
-        margin-top: 4em;
+        margin-top: 3em;
+        letter-spacing: .1rem;
     }
 
     & a {
