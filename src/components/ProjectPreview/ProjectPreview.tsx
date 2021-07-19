@@ -46,7 +46,6 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, ti
     ${colors.secondary}
   `;
 
-
   return (
     <AniLink 
       cover 
