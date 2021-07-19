@@ -34,9 +34,9 @@ const Footer: React.FC<FooterProps> = () => {
       </WaveContainer>
       <FooterContent>
         <Container>
-          <Row justify="center">
+          <Row>
             <Col md={6}>
-              <CallToAction>Gezellig samen kletsen?</CallToAction>
+              <CallToAction>Klaar voor een gesprek?</CallToAction>
             </Col>
             <Col md={6}>
               <ContactMe>Om meer te weten te komen, of voor eventuele samenwerkingen, <a href="mailto:lvdnbusiness@icloud.com" target="_blank">laat een mailtje achter</a> of vind me op social media.</ContactMe>
@@ -49,7 +49,6 @@ const Footer: React.FC<FooterProps> = () => {
               <BuildBy>Drawings by <a href="" target="_blank">Tejo Zandee</a></BuildBy>
             </Col>
           </Row>
-
         </Container>
       </FooterContent>
     </FooterContainer>

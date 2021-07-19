@@ -3,4 +3,5 @@ export interface ProjectPreviewProps {
   imgSrc: any;
   title: string;
   sub: string;
+  backgroundColor: string;
 }

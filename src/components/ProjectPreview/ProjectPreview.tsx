@@ -14,7 +14,7 @@ import {
 
 const { colors } = theme;
 
-export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, title, sub }) => {
+export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, title, sub, backgroundColor }) => {
   useEffect(() => {
   let project: HTMLElement = document.getElementById(sub) as HTMLElement;
   let nav: HTMLElement = document.getElementById("nav") as HTMLElement;
@@ -57,7 +57,7 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, ti
         <ProjectPreviewImage
           Tag="section"
           fluid={imgSrc}
-          backgroundColor={`#040e18`}
+          backgroundColor={backgroundColor}
         />
         <ProjectPreviewTextContainer>
           <ProjectPreviewTitle>{ title }</ProjectPreviewTitle>

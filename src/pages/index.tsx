@@ -7,11 +7,6 @@ import styled from 'styled-components'
 import theme from '../styles/theme'
 import { graphql } from "gatsby"
 
-const { mediaQueryMin } = theme
-
-const berenjacht = require('../images/projects/berenjacht.png').default
-const lemonbike = require('../images/projects/lemonbike.jpg').default
-
 const animOptions = {
   loop: false,
   autoplay: true, 
@@ -21,11 +16,15 @@ const animOptions = {
   }
 }
 
+const OffsetCol = styled(Col)`
+  top: -230px;
+`
+
 const TextContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
   width: 100%;
 `;
 
@@ -40,23 +39,6 @@ const Title = styled.h1`
 
 const SubTitle = styled.h5`
   line-height: 1.3em;
-`;
-
-const ProjectsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: masonry;
-  column-gap: 2em;
-  row-gap: 2rem;
-
-  @media (${mediaQueryMin.sm}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;
-
-const TestEl = styled.div`
-  background-color: red;
-  width: 100%;
-  height: 100px;
 `;
 
 type Project = {
@@ -80,16 +62,27 @@ interface Props {
 const index: React.FC<Props> = ({ data }) => {
   const { edges: projects } = data.allDatoCmsProject;
 
+  let leftCol = [];
+  let rightCol = [];
+  let half = Math.round(projects.length / 2)
+  for (let i = 0; i < projects.length; i++) {
+    if (i !== half) {
+      rightCol.push(projects[i])
+    } else {
+      leftCol.push(projects[i])
+    }
+  }
+
   return (
   <>
-    <Row>
-      <Col>
+    <Row justify="between" style={{ marginBottom: "3em" }}>
+      <Col md={5} >
         <Lottie options={animOptions}
           height={800}
           width={545}
           />
       </Col>
-      <Col>
+      <Col md={6}>
         <TextContainer>
           <Title>
             Hallo!
@@ -103,16 +96,30 @@ const index: React.FC<Props> = ({ data }) => {
         </TextContainer>
       </Col>
     </Row>
-    <ProjectsWrapper>
-      {projects.map(({ node: project }) => (
-        <ProjectPreview 
-          key={project.id}
-          href={`/projects/${project.slug}`}
-          imgSrc={project.featuredphoto.fluid}
-          title={project.title}
-          sub={project.company} />
-      ))}
-    </ProjectsWrapper>
+    <Row>
+      <Col md={6} style={{ padding: 0 }}>
+        {leftCol.map(({ node: project }) => (
+          <ProjectPreview 
+            key={project.id}
+            href={`/projects/${project.slug}`}
+            imgSrc={project.featuredphoto.fluid}
+            backgroundColor={project.backgroundColor.hex}
+            title={project.title}
+            sub={project.company} />
+        ))}
+      </Col>
+      <OffsetCol md={6} style={{ padding: 0 }}>
+        {rightCol.map(({ node: project }) => (
+          <ProjectPreview 
+            key={project.id}
+            href={`/projects/${project.slug}`}
+            imgSrc={project.featuredphoto.fluid}
+            backgroundColor={project.backgroundColor.hex}
+            title={project.title}
+            sub={project.company} />
+        ))}
+      </OffsetCol>
+    </Row>
   </>
 )};
 
@@ -125,6 +132,9 @@ export const pageQuery = graphql`
           title
           slug
           company
+          backgroundColor {
+            hex
+          }
           featuredphoto {
             fluid {
               ...GatsbyDatoCmsFluid

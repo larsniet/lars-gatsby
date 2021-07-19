@@ -15,15 +15,9 @@ export const NavbarContainer = styled(Container)`
     padding: 5rem 0;
 `;
 
-export const NavbarContent = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
 export const NavbarItems = styled.div`
     margin-left: auto;
 `;
-
 
 export const NavbarLogo = styled.h5`
     color: ${colors.secondary};

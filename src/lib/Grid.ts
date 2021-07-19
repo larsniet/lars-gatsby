@@ -37,8 +37,13 @@ export const Row = styled(RowBase)`
 `;
 
 export const Col = styled(ColBase)`
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    box-sizing: border-box;
+    border: 1em solid transparent;
+    border-top: 0;
+    border-bottom: 0;
+    background-clip: padding-box;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 `;
 
 export const Hidden = styled(HiddenBase)`

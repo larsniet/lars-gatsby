@@ -5,11 +5,6 @@ export const ProjectPreviewImage = styled(BackgroundImage)`
   transition: .3s all ease;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  background-color: #00000030;
 `;
 
 export const ProjectPreviewContainer = styled.div`
@@ -20,6 +15,7 @@ export const ProjectPreviewContainer = styled.div`
   width: 100%;
   height: 400px;
   transition: .3s all ease;
+  margin: 2em 0;
 
   &:hover ${ProjectPreviewImage} {
     transform: rotate(-2deg) scale(1.06);
