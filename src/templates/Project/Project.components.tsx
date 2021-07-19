@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components'
 import Img from 'gatsby-image'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import theme from '../../styles/theme'
+
+const { colors } = theme;
 
 const fadeIn = keyframes`
   from {
@@ -9,23 +13,33 @@ const fadeIn = keyframes`
   to { opacity: 1 }
 `;
 
-export const ProjectContainer = styled.section`
+type GatsbyImage = {
+  fluid?: boolean
+  objectFit?: string
+  objectPosition?: string
+  backgroundColor?: string
+}
+
+export const ProjectImageContainer = styled.div`
+  width: 100%;
+  height: auto;
   position: relative;
   text-align: center;
-
-  & img {
-    position: relative;
-    height: 50vh;
-    width: auto;
-    filter: brightness(80%);
-  }
 `;
 
-export const ProjectImage = styled.div`
+export const ProjectImage = styled(Img)<GatsbyImage>`
+  transition: .3s all ease;
   position: relative;
   height: 100vh;
-  width: 100%;
+  width: auto;
   filter: brightness(80%);
+  background-color: ${props => props.backgroundColor};
+`;
+
+export const ProjectContainer = styled.section`
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 `;
 
 export const ProjectTextContainer = styled.div`
@@ -38,7 +52,7 @@ export const ProjectTextContainer = styled.div`
 `;
 
 export const ProjectTitle = styled.h1`
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.59);
+  text-shadow: 0 0.0625rem 0 #000;
   color: #fff;
   line-height: 0;
 `;
@@ -46,12 +60,27 @@ export const ProjectTitle = styled.h1`
 export const ProjectSub = styled.h3`
   color: #fff;
   font-weight: 100;
+  text-shadow: 0 0.0625rem 0 #000;
   font-family: "Rubik";
 `;
 
-export const ProjectImg = styled(Img)`
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  filter: brightness(80%);
+export const ProjectOverview = styled.section`
+  margin-top: 3em;
+  text-align: left;
 `;
+
+export const NextProjectLink = styled(AniLink)`
+  text-decoration: none;
+  color: ${colors.black};
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: auto;
+  display: inline-block;
+  margin: 4em 0;
+  transition: .3s all ease;
+
+  &:hover {
+    color: ${colors.secondary}
+  }
+`

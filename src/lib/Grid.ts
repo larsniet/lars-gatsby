@@ -46,6 +46,13 @@ export const Col = styled(ColBase)`
     margin-right: 0 !important;
 `;
 
+export const NormalCol = styled(ColBase)`
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+`;
+
 export const Hidden = styled(HiddenBase)`
     position: relative;
 `;

@@ -18,7 +18,7 @@ export const ProjectPreviewContainer = styled.div`
   margin: 2em 0;
 
   &:hover ${ProjectPreviewImage} {
-    transform: rotate(-2deg) scale(1.06);
+    transform: rotate(-1.6deg) scale(1.06);
   }
 `;
 
@@ -33,7 +33,7 @@ export const ProjectPreviewTextContainer = styled.div`
 
 export const ProjectPreviewTitle = styled.h3`
   font-size: 35px;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.59);
+  text-shadow: 0 0.0625rem 0 #000;
   color: #fff;
 `;
 

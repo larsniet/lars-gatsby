@@ -2,60 +2,86 @@ import React from "react";
 import {
   ProjectContainer,
   ProjectTextContainer,
+  ProjectImageContainer,
   ProjectTitle,
   ProjectSub,
+  ProjectImage,
+  ProjectOverview,
+  NextProjectLink
 } from './Project.components'
+import { Row, NormalCol } from '../../lib/Grid'
 import { ProjectProps, InnerProjectProps } from './Project.types'
-import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link'
-import posed from 'react-pose';
-import { graphql } from "gatsby";
-import Img from 'gatsby-image'
+import { TransitionState } from 'gatsby-plugin-transition-link'
+import { graphql } from "gatsby"
+import theme from  '../../styles/theme'
 
-const TRANSITION_LENGTH = 1.5
-const exitTransition = {
-  length: TRANSITION_LENGTH,
-  trigger: () => {
-    if (document) {
-      document.body.style.overflow = 'hidden'
-    }
-  },
-}
-const entryTransition = {
-  delay: TRANSITION_LENGTH,
-  trigger: () => {
-    if (document && window) {
-      window.scrollTo(0, 0)
-      document.body.style.overflow = 'visible'
-    }
-  },
-}
-const FadingContent = posed.div({
-  exiting: { opacity: 0 },
-})
-
-
-const InnerProject: React.FC<InnerProjectProps> = ({ transitionStatus, project }) => {
+const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
   const nextProjectUrl = `/projects/${project.next.slug}`
 
+  const bg = `
+    center / cover   /* position / size */
+    no-repeat        /* repeat */
+    fixed            /* attachment */
+    padding-box      /* origin */
+    content-box      /* clip */
+    ${project.next.backgroundColor.hex}
+  `;
+
   return (
-    <FadingContent pose={transitionStatus}>
-      <ProjectContainer>
-        <Img fluid={ project.featuredphoto.fluid }/>
+    <ProjectContainer>
+      <ProjectImageContainer>
+        <ProjectImage 
+          Tag="section"
+          fluid={project.featuredphoto.fluid}
+          objectFit="cover"
+          backgroundColor={project.backgroundColor.hex}
+        />
         <ProjectTextContainer>
           <ProjectTitle>{ project.title }</ProjectTitle>
           <ProjectSub>{ project.company }</ProjectSub>
         </ProjectTextContainer>
-        <TransitionLink 
-          style={{
-            textDecoration: 'none',
-            color: 'inherit',
-          }}
-          to={nextProjectUrl} 
-          exit={exitTransition}
-          entry={entryTransition}
-        >Volgend project</TransitionLink>  
-      </ProjectContainer>
-    </FadingContent>
+      </ProjectImageContainer>
+
+      <ProjectOverview>
+        <Row justify="between">
+          <NormalCol md={6}>
+            <Row style={{ marginBottom: "2em" }}>
+              <NormalCol md={6}>
+                <h3>Overzicht</h3>
+              </NormalCol>
+              <NormalCol md={6}>
+                <p>{project.overview}</p>
+              </NormalCol>
+            </Row>
+            <Row>
+              <NormalCol md={6}>
+                <h3>Mijn Taken</h3>
+              </NormalCol>
+              <NormalCol md={6}>
+                <ul>
+                  {project.roles.value.document.children.map(( role ) => (
+                    <li key={role.children[0].value}><p>{role.children[0].value}</p></li>
+                  ))}
+                </ul>
+              </NormalCol>
+            </Row>
+          </NormalCol>
+          <NormalCol md={5}>
+            <p>{project.description}</p>
+          </NormalCol>
+        </Row>
+      </ProjectOverview>  
+    
+      <NextProjectLink 
+        cover 
+        direction="left"
+        to={nextProjectUrl} 
+        hex={theme.colors.secondary}
+        duration={1}
+        bg={bg}
+      >Volgend project
+      </NextProjectLink>
+    </ProjectContainer>
   )
 }
 
@@ -79,6 +105,14 @@ const Project: React.FC<ProjectProps> = ({ pageContext: projectShell, data }) =>
 export const query = graphql`
   query($slug: String!, $nextSlug: String!) {
     project: datoCmsProject(slug: { eq: $slug }) {
+      description
+      overview
+      roles {
+        value
+      }
+      backgroundColor {
+        hex
+      }
       featuredphoto {
         fluid {
           ...GatsbyDatoCmsFluid
@@ -86,13 +120,9 @@ export const query = graphql`
       }
     }
     next: datoCmsProject(slug: { eq: $nextSlug }) {
-      title
       slug
-      company
-      featuredphoto {
-        fluid {
-          ...GatsbyDatoCmsFluid
-        }
+      backgroundColor {
+        hex
       }
     }
   }
