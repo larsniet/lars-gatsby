@@ -40,6 +40,8 @@ export const Col = styled(ColBase)`
     box-sizing: border-box;
     border: none;
     background-clip: padding-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
 
