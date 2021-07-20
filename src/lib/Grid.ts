@@ -38,12 +38,16 @@ export const Row = styled(RowBase)`
 
 export const Col = styled(ColBase)`
     box-sizing: border-box;
-    border: 1em solid transparent;
-    border-top: 0;
-    border-bottom: 0;
+    border: none;
     background-clip: padding-box;
     margin-left: 0 !important;
     margin-right: 0 !important;
+
+    @media(${mediaQueryMin.tablet}) {
+        border: 1em solid transparent;
+        border-top: 0;
+        border-bottom: 0;
+    }
 `;
 
 export const NormalCol = styled(ColBase)`

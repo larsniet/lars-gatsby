@@ -21,7 +21,7 @@ export const NavbarItems = styled.div`
 
 export const NavbarLogo = styled.h5`
     color: ${colors.secondary};
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 0;
 `;
 

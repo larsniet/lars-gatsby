@@ -40,6 +40,7 @@ export const ContactMe = styled.h5`
     letter-spacing: normal;
     font-weight: 100;
     margin-top: 1em;
+    line-height: 1.3em;
 
     @media (${mediaQueryMin.tablet}) {
         margin-top: 3em;

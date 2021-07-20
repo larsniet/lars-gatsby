@@ -1,52 +1,20 @@
 import React from "react"
-import { Row, Col } from '../lib/Grid'
+import { Row, Col, NormalCol } from '../lib/Grid'
 import { ProjectPreview } from '../components/ProjectPreview/ProjectPreview'
 import Lottie from 'react-lottie'
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
-import theme from '../styles/theme'
 import { graphql } from "gatsby"
 
-const animOptions = {
-  loop: false,
-  autoplay: true, 
-  animationData: animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-}
+import theme from '../styles/theme'
+const { mediaQueryMin } = theme;
 
-const OffsetCol = styled(Col)`
-  top: -230px;
-`
-
-const TextContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  width: 100%;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  font-weight: 700;
-
-  &:nth-last-child(2) {
-    margin-bottom: 2rem;
-  }
-`;
-
-const SubTitle = styled.h5`
-  line-height: 1.3em;
-`;
-
-type Project = {
-  id: string;
-  slug: string;
-  title: string;
-  company: string;
-  featuredphoto: any;
+interface Project {
+  id: string
+  slug: string
+  title: string
+  company: string
+  featuredphoto: any
 };
 
 interface Props {
@@ -58,6 +26,83 @@ interface Props {
     };
   };
 }
+
+const animOptions = {
+  loop: false,
+  autoplay: true, 
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+}
+
+const CustomRow = styled(Row)`
+  margin-bottom: 8em;
+  @media(${mediaQueryMin.tablet}) {
+    margin-bottom: 12em;
+  }
+`;
+
+const CustomCol = styled(Col)`
+  padding: 0 !important;
+`
+
+const OffsetCol = styled(CustomCol)`
+  top: -230px;
+
+  @media(max-width: 1330px) {
+    top: -170px;
+  }
+  @media(max-width: 1200px) {
+    top: -100px;
+  }
+  @media(max-width: 767px) {
+    top: 0;
+  }
+`
+
+const TextContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+  font-weight: 800;
+  text-align: center;
+
+  &:nth-last-child(2) {
+    margin-bottom: 2rem;
+  }
+
+  @media(${mediaQueryMin.tablet}) {
+    text-align: left;
+  }
+`;
+
+const SubTitle = styled.h5`
+  line-height: 1.3em;
+  text-align: center;
+
+  @media(${mediaQueryMin.tablet}) {
+    text-align: left;
+  }
+`;
+
+const LottieContainer = styled.div`
+  width: 270px;
+  height: 350px;
+  margin: 0 auto;
+
+  @media(${mediaQueryMin.tablet}) {
+    width: 100%;
+    height: 130%;
+  }
+`;
+
 
 const index: React.FC<Props> = ({ data }) => {
   const { edges: projects } = data.allDatoCmsProject;
@@ -75,13 +120,14 @@ const index: React.FC<Props> = ({ data }) => {
 
   return (
   <>
-    <Row justify="between" style={{ marginBottom: "3em" }}>
-      <Col md={5} >
-        <Lottie options={animOptions}
-          height={800}
-          width={545}
+    <CustomRow justify="between">
+      <NormalCol md={6}>
+        <LottieContainer>
+          <Lottie 
+            options={animOptions}
           />
-      </Col>
+        </LottieContainer>
+      </NormalCol>
       <Col md={6}>
         <TextContainer>
           <Title>
@@ -95,9 +141,9 @@ const index: React.FC<Props> = ({ data }) => {
           </SubTitle>
         </TextContainer>
       </Col>
-    </Row>
+    </CustomRow>
     <Row>
-      <Col md={6} style={{ padding: 0 }}>
+      <CustomCol md={6}>
         {leftCol.map(({ node: project }) => (
           <ProjectPreview 
             key={project.id}
@@ -107,8 +153,8 @@ const index: React.FC<Props> = ({ data }) => {
             title={project.title}
             sub={project.company} />
         ))}
-      </Col>
-      <OffsetCol md={6} style={{ padding: 0 }}>
+      </CustomCol>
+      <OffsetCol md={6}>
         {rightCol.map(({ node: project }) => (
           <ProjectPreview 
             key={project.id}

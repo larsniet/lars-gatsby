@@ -57,8 +57,8 @@ export const ProjectTitle = styled.h1`
   line-height: normal;
 
   @media (${mediaQueryMin.tablet}) {
-        margin-top: 2em;
-    }
+    margin-top: 2em;
+  }
 `;
 
 export const ProjectSub = styled.h3`

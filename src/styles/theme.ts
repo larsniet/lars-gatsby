@@ -13,9 +13,9 @@ const navyBlue = '#14213d';
 const yellow = '#fca311';
 
 // Fonts
-const heading = 'Lato';
-const paragraph = 'Rubik';
-const menu = 'Rubik';
+const heading = 'Open Sans';
+const paragraph = 'Open Sans';
+const menu = 'Open Sans';
 
 // Font weights
 const light = 300;
@@ -311,7 +311,7 @@ const theme: Theme = {
         xl: '15vw',
     },
     mediaQueryMin: {
-        tablet: `min-width: 768px `,
+        tablet: `min-width: 768px`,
         xs: `min-width: ${breakpoints.xs}`,
         sm: `min-width: ${breakpoints.sm}`,
         md: `min-width: ${breakpoints.md}`,
