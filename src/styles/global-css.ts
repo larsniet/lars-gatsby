@@ -72,11 +72,9 @@ export const TypographyClassStyling = createGlobalStyle`
         }`,
         )
         .join('\n')}
-`;
+`
 
 const GlobalStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display:400,700');
-
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,

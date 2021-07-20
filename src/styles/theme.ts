@@ -18,9 +18,10 @@ const paragraph = 'Open Sans';
 const menu = 'Open Sans';
 
 // Font weights
+const extraLight = 100;
 const light = 300;
-const regular = 300;
-const bold = 700;
+const regular = 500;
+const bold = 800;
 
 // Global Header settings
 const GlobalHeadingSettings = {
@@ -202,7 +203,7 @@ const theme: Theme = {
         h3: {
             spacing: GlobalHeadingSettings.spacing,
             font: heading,
-            weight: GlobalHeadingSettings.weight,
+            weight: bold,
             color: GlobalHeadingSettings.color,
             marginBottom: GlobalHeadingSettings.marginBottom,
         },
@@ -217,7 +218,7 @@ const theme: Theme = {
             spacing: GlobalHeadingSettings.spacing,
             font: heading,
             height: '1.33em',
-            weight: light,
+            weight: extraLight,
             color: GlobalHeadingSettings.color,
             marginBottom: GlobalHeadingSettings.marginBottom,
         },

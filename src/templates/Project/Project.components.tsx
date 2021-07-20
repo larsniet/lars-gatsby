@@ -65,7 +65,6 @@ export const ProjectSub = styled.h3`
   color: #fff;
   font-weight: 100;
   text-shadow: 0 0.0625rem 0 #000;
-  font-family: "Rubik";
 `;
 
 export const ProjectOverview = styled.section`

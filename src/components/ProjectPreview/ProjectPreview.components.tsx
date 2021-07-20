@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image'
 
 import theme from '../../styles/theme'
-const { mediaQueryMin } = theme;
+const { mediaQueryMin, colors } = theme;
 
 export const ProjectPreviewImage = styled(BackgroundImage)`
   transition: .3s all ease;
@@ -35,10 +35,9 @@ export const ProjectPreviewTextContainer = styled.div`
 
 export const ProjectPreviewTitle = styled.h3`
   text-shadow: 0 0.0625rem 0 #000;
-  color: #fff;
+  color: ${colors.offWhite};
 `;
 
 export const ProjectPreviewSub = styled.h5`
-  color: #fff;
-  font-weight: 300;
+  color: ${colors.offWhite};
 `;

@@ -54,11 +54,16 @@ module.exports = {
       __key: "pages",
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: "gatsby-plugin-webfonts",
       options: {
-        google: {
-          families: ['Rubik', 'Anton', 'Lato']
-        }
+        fonts: {
+          google: [
+            {
+              family: "Open Sans",
+              variants: ["100", "300", "500", "800"],
+            },
+          ],
+        },
       }
     },
     "gatsby-plugin-styled-components",
