@@ -43,7 +43,10 @@ module.exports = {
         background_color: `#f5f5f5`,
         theme_color: `#000`,
         display: `standalone`,
-        icon: "src/images/icon.png"
+        icon: "src/images/icon.png",
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
     {
