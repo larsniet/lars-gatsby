@@ -46,7 +46,7 @@ const Footer: React.FC<FooterProps> = () => {
                       <a href="https://twitter.com/larsvdniet" target="_blank"><FaTwitter /></a>
                 </SocialsContainer>
               </IconContext.Provider>
-              <BuildBy>Drawings by <a href="" target="_blank">Tejo Zandee</a></BuildBy>
+              <BuildBy>Drawings by <a href="https://www.instagram.com/mattoe_zandee/" target="_blank">Tejo Zandee</a></BuildBy>
             </NormalCol>
           </Row>
         </Container>

@@ -9,6 +9,12 @@ import { graphql } from "gatsby"
 import theme from '../styles/theme'
 const { mediaQueryMin } = theme;
 
+// const pageSettings = {
+//   title: 'Deskundig full stack developer en software adviseur',
+//   description: 'Een developer die webapplicaties realiseert voor zowel kleine als grote bedrijven',
+//   keywords: 'lars van der niet, website, freelance',
+// };
+
 interface Project {
   id: string
   slug: string

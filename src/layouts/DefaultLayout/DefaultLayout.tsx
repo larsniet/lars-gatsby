@@ -1,17 +1,22 @@
 import React from 'react';
-import { GlobalStyles, TypographyClassStyling } from '../../styles/global-css';
 import HeadScripts from '../../lib/getHeadScripts';
-import { Main } from './DefaultLayout.components';
-import LayoutProps from './DefaultLayout.types';
+import { GlobalStyles, TypographyClassStyling } from '../../styles/global-css';
+import SEO from '../SEO/SEO';
 import Navbar from '../../containers/Navbar/Navbar';
-import Footer from '../../containers/Footer/Footer';
+import { Main } from './DefaultLayout.components';
 import Container from '../../containers/Container';
+import Footer from '../../containers/Footer/Footer';
 
-const Layout: React.FC<LayoutProps> = ({children}) => {
+import LayoutProps from './DefaultLayout.types';
+
+const Layout: React.FC<LayoutProps> = ({ children, pageSettings }) => {
+  // const { title, description, keywords } = pageSettings;
+
   return (
     <>
       <HeadScripts />
       <GlobalStyles />
+      {/* <SEO title={title} description={description} keywords={keywords} /> */}
       <Navbar />
       <Main>
         <Container>

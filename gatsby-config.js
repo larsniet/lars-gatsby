@@ -3,6 +3,7 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: "Lars van der Niet",
+    author: "@larsvdniet",
     titleTemplate: "%s · Web development zonder haken en ogen",
     description:
       "De lokale web developer waar u naar op zoek bent.",
@@ -34,7 +35,21 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        name: `Lars van der Niet`,
+        description: `Web development zonder haken en ogen.`,
+        lang: `nl`,
+        short_name: `LarsvdNiet`,
+        start_url: `/`,
+        background_color: `#f5f5f5`,
+        theme_color: `#000`,
+        display: `standalone`,
+        icon: "src/images/icon.png"
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        precachePages: ['/', '/about/', '/projects/*'],
       },
     },
     {
