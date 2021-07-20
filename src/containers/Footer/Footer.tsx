@@ -42,8 +42,8 @@ const Footer: React.FC<FooterProps> = () => {
               <ContactMe>Om meer te weten te komen, of voor eventuele samenwerkingen, <a href="mailto:lvdnbusiness@icloud.com" target="_blank">laat een mailtje achter</a> of vindt me op social media.</ContactMe>
               <IconContext.Provider value={{ color: "white", size: "2em" }}>
                 <SocialsContainer>
-                      <a href="https://www.instagram.com/lvdniet/" target="_blank" rel="noopener"><FaInstagram /></a>
-                      <a href="https://twitter.com/larsvdniet" target="_blank" rel="noopener"><FaTwitter /></a>
+                      <a href="https://www.instagram.com/lvdniet/" target="_blank" rel="noopener" aria-label="Instagram"><FaInstagram /></a>
+                      <a href="https://twitter.com/larsvdniet" target="_blank" rel="noopener" aria-label="Twitter"><FaTwitter /></a>
                 </SocialsContainer>
               </IconContext.Provider>
               <BuildBy>Drawings by <a href="https://www.instagram.com/mattoe_zandee/" target="_blank">Tejo Zandee</a></BuildBy>
