@@ -9,14 +9,11 @@ import Footer from '../../containers/Footer/Footer';
 
 import LayoutProps from './DefaultLayout.types';
 
-const Layout: React.FC<LayoutProps> = ({ children, pageSettings }) => {
-  // const { title, description, keywords } = pageSettings;
-
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <HeadScripts />
       <GlobalStyles />
-      {/* <SEO title={title} description={description} keywords={keywords} /> */}
       <Navbar />
       <Main>
         <Container>

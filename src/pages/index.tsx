@@ -5,15 +5,16 @@ import Lottie from 'react-lottie'
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
 import { graphql } from "gatsby"
+import SEO from '../layouts/SEO/SEO';
 
 import theme from '../styles/theme'
 const { mediaQueryMin } = theme;
 
-// const pageSettings = {
-//   title: 'Deskundig full stack developer en software adviseur',
-//   description: 'Een developer die webapplicaties realiseert voor zowel kleine als grote bedrijven',
-//   keywords: 'lars van der niet, website, freelance',
-// };
+const pageSettings = {
+  title: 'Deskundig full stack developer',
+  description: 'Een  die webapplicaties realiseert voor zowel kleine als grote bedrijven',
+  keywords: 'lars van der niet, website, freelance',
+};
 
 interface Project {
   id: string
@@ -111,6 +112,7 @@ const LottieContainer = styled.div`
 
 
 const index: React.FC<Props> = ({ data }) => {
+  const { title, description, keywords } = pageSettings;
   const { edges: projects } = data.allDatoCmsProject;
 
   let leftCol = [];
@@ -126,6 +128,7 @@ const index: React.FC<Props> = ({ data }) => {
 
   return (
   <>
+    <SEO title={title} description={description} keywords={keywords} />
     <CustomRow justify="between">
       <NormalCol md={6}>
         <LottieContainer>

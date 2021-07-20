@@ -14,6 +14,7 @@ import { ProjectProps, InnerProjectProps } from './Project.types'
 import { TransitionState } from 'gatsby-plugin-transition-link'
 import { graphql } from "gatsby"
 import theme from  '../../styles/theme'
+import SEO from '../../layouts/SEO/SEO'
 
 const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
   const nextProjectUrl = `/projects/${project.next.slug}`
@@ -29,6 +30,7 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
 
   return (
     <ProjectContainer>
+      <SEO title={project.company} description={project.title} keywords={project.title} />
       <ProjectImageContainer>
         <ProjectImage 
           Tag="section"

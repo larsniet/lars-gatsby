@@ -3,7 +3,7 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: "Lars van der Niet",
-    author: "@larsvdniet",
+    author: "Lars van der Niet",
     titleTemplate: "%s · Web development zonder haken en ogen",
     description:
       "De lokale web developer waar u naar op zoek bent.",
