@@ -41,7 +41,7 @@ module.exports = {
         short_name: `LarsvdNiet`,
         start_url: `/`,
         background_color: `#f5f5f5`,
-        theme_color: `#f5f5f5`,
+        theme_color: `#f5f5f5c7`,
         display: `standalone`,
         icon: "src/images/icon.png",
         icon_options: {
