@@ -44,9 +44,9 @@ const animOptions = {
 }
 
 const CustomRow = styled(Row)`
-  margin-bottom: 12em;
+  margin-bottom: 8em;
   @media(min-width: ${containerWidth.tablet}) {
-    margin-bottom: 8em;
+    margin-bottom: 12em;
   }
 `;
 
@@ -79,34 +79,34 @@ const TextContainer = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-weight: 800;
-  text-align: left;
+  text-align: center;
 
   &:nth-last-child(2) {
     margin-bottom: 2rem;
   }
 
   @media(min-width: ${containerWidth.tablet}) {
-    text-align: center;
+    text-align: left;
   }
 `;
 
 const SubTitle = styled.h5`
   line-height: 1.3em;
-  text-align: left;
+  text-align: center;
 
   @media(min-width: ${containerWidth.tablet}) {
-    text-align: center;
+    text-align: left;
   }
 `;
 
 const LottieContainer = styled.div`
-  width: 100%;
-  height: 130%;
+  width: 270px;
+  height: 350px;
   margin: 0 auto;
 
   @media(min-width: ${containerWidth.tablet}) {
-    width: 270px;
-    height: 350px;
+    width: 100%;
+    height: 130%;
   }
 `;
 
