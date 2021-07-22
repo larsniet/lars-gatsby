@@ -8,7 +8,7 @@ import { graphql } from "gatsby"
 import SEO from '../layouts/SEO/SEO';
 
 import theme from '../styles/theme'
-const { mediaQueryMin } = theme;
+const { mediaQueryMin, containerWidth } = theme;
 
 const pageSettings = {
   title: 'Lars van der Niet',
@@ -44,9 +44,9 @@ const animOptions = {
 }
 
 const CustomRow = styled(Row)`
-  margin-bottom: 8em;
-  @media(${mediaQueryMin.tablet}) {
-    margin-bottom: 12em;
+  margin-bottom: 12em;
+  @media(min-width: ${containerWidth.tablet}) {
+    margin-bottom: 8em;
   }
 `;
 
@@ -55,16 +55,16 @@ const CustomCol = styled(Col)`
 `
 
 const OffsetCol = styled(CustomCol)`
-  top: -230px;
+  top: 0;
 
-  @media(max-width: 1330px) {
+  @media(min-width: 1330px) {
+    top: -230px;
+  }
+  @media(min-width: 1200px) {
     top: -170px;
   }
-  @media(max-width: 1200px) {
+  @media(min-width: 767px) {
     top: -100px;
-  }
-  @media(max-width: 767px) {
-    top: 0;
   }
 `
 
@@ -79,34 +79,34 @@ const TextContainer = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-weight: 800;
-  text-align: center;
+  text-align: left;
 
   &:nth-last-child(2) {
     margin-bottom: 2rem;
   }
 
-  @media(${mediaQueryMin.tablet}) {
-    text-align: left;
+  @media(min-width: ${containerWidth.tablet}) {
+    text-align: center;
   }
 `;
 
 const SubTitle = styled.h5`
   line-height: 1.3em;
-  text-align: center;
+  text-align: left;
 
-  @media(${mediaQueryMin.tablet}) {
-    text-align: left;
+  @media(min-width: ${containerWidth.tablet}) {
+    text-align: center;
   }
 `;
 
 const LottieContainer = styled.div`
-  width: 270px;
-  height: 350px;
+  width: 100%;
+  height: 130%;
   margin: 0 auto;
 
-  @media(${mediaQueryMin.tablet}) {
-    width: 100%;
-    height: 130%;
+  @media(min-width: ${containerWidth.tablet}) {
+    width: 270px;
+    height: 350px;
   }
 `;
 
