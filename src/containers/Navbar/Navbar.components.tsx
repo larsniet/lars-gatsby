@@ -10,7 +10,7 @@ export const NavWrapper = styled.nav<{menuIsOpen: boolean}>`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.2em 0;
+    padding: 2.2em 0;
     z-index: 9999;
     flex-direction: row;
     width: 100%;
@@ -33,7 +33,7 @@ export const NavItems = styled.ul<{menuIsOpen: boolean}>`
     @media(max-width: ${containerWidth.tablet}) {
         position: fixed;
         left: ${(props) => (props.menuIsOpen ? '50%' : '100%')};
-        top: 8.73rem;
+        top: 6.3rem;
         flex-direction: column;
         background-color: ${colors.offWhiteBackground};
         width: 50%;
