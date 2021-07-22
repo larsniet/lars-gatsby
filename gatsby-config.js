@@ -38,7 +38,7 @@ module.exports = {
         name: `Lars van der Niet`,
         description: `Web development zonder haken en ogen.`,
         lang: `nl`,
-        short_name: `LarsvdNiet`,
+        short_name: `Lars`,
         start_url: `/`,
         background_color: `#f5f5f5`,
         theme_color: `#f5f5f5c7`,
