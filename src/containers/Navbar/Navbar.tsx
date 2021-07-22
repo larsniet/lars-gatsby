@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             <CustomLinkUnderline url={'/about'} effect="fade" lenght={.3}>Over Lars</CustomLinkUnderline>
           </NavItem>
         </NavItems>
-        <Hamburger menuIsOpen={menuIsOpen} onClick={toggleMenu}>
+        <Hamburger menuIsOpen={menuIsOpen} onClick={toggleMenu} aria-label="Navigation button">
           <span />
           <span />
           <span />
