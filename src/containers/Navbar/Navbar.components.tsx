@@ -3,18 +3,20 @@ import theme from '../../styles/theme'
 
 const { colors, containerWidth } = theme;
 
-export const NavWrapper = styled.nav`
+export const NavWrapper = styled.nav<{menuIsOpen: boolean}>`
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3em 0;
+    padding: 3.2em 0;
     z-index: 9999;
     flex-direction: row;
     width: 100%;
-    background-color: ${colors.offWhiteBackground};
+    transition: .6s all ease;
+
+    background-color: ${(props) => (props.menuIsOpen ? colors.offWhite : colors.offWhiteBackground)};
 `
 
 export const NavbarLogo = styled.h5`
@@ -31,7 +33,7 @@ export const NavItems = styled.ul<{menuIsOpen: boolean}>`
     @media(max-width: ${containerWidth.tablet}) {
         position: fixed;
         left: ${(props) => (props.menuIsOpen ? '50%' : '100%')};
-        top: 8.23rem;
+        top: 8.73rem;
         flex-direction: column;
         background-color: ${colors.offWhiteBackground};
         width: 50%;

@@ -134,6 +134,7 @@ const index: React.FC<Props> = ({ data }) => {
         <LottieContainer>
           <Lottie 
             options={animOptions}
+            isClickToPauseDisabled={true}
           />
         </LottieContainer>
       </NormalCol>

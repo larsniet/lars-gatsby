@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   NavbarLogo,
   NavWrapper,
@@ -9,15 +9,23 @@ import {
 import { NavbarProps } from './Navbar.types'
 import { CustomLinkUnderline } from '../../components/Transitions/LinkCustom.components'
 import Container from '../../containers/Container';
-
+import { useDetectClickOutside } from 'react-detect-click-outside';
 
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const toggleMenu = () => setMenuIsOpen(!menuIsOpen);
+  const handleOutsideClick = () => {
+    if (menuIsOpen) {
+      console.log("menu is open en er is geklikt");
+      toggleMenu();
+    }
+  }
+
+  const ref = useDetectClickOutside({ onTriggered: handleOutsideClick });
 
   return (
-    <NavWrapper id="nav">
+    <NavWrapper menuIsOpen={menuIsOpen} ref={ref}>
       <Container>
         <NavbarLogo>Lars van der Niet</NavbarLogo>
       </Container>

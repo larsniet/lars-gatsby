@@ -1,5 +1,6 @@
 export interface NavbarProps {
     background?: boolean;
+    closeDropdown?: any;
 }
 
 export interface NavbarItemProps {
