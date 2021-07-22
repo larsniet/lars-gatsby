@@ -7,7 +7,6 @@ import { ProjectPreviewProps } from './ProjectPreview.types'
 import { 
   ProjectPreviewContainer,
   ProjectPreviewTextContainer,
-  ProjectPreviewImage,
   ProjectPreviewTitle,
   ProjectPreviewSub
 } from './ProjectPreview.components'
@@ -53,16 +52,15 @@ export const ProjectPreview: React.FC<ProjectPreviewProps> = ({ href, imgSrc, ti
       to={href} 
       hex={colors.secondary}
       bg={bg}>
-      <ProjectPreviewContainer id={sub}>
-        <ProjectPreviewImage
-          Tag="section"
-          fluid={imgSrc}
-          backgroundColor={backgroundColor}
-        />
-        <ProjectPreviewTextContainer>
-          <ProjectPreviewTitle>{ title }</ProjectPreviewTitle>
-          <ProjectPreviewSub>{ sub }</ProjectPreviewSub>
-        </ProjectPreviewTextContainer>
+      <ProjectPreviewContainer 
+        id={sub}
+        Tag="section"
+        fluid={imgSrc}
+        backgroundColor={backgroundColor}>
+          <ProjectPreviewTextContainer>
+            <ProjectPreviewTitle>{ title }</ProjectPreviewTitle>
+            <ProjectPreviewSub>{ sub }</ProjectPreviewSub>
+          </ProjectPreviewTextContainer>
       </ProjectPreviewContainer>
     </AniLink>
   );

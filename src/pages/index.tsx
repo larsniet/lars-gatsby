@@ -8,7 +8,7 @@ import { graphql } from "gatsby"
 import SEO from '../layouts/SEO/SEO';
 
 import theme from '../styles/theme'
-const { mediaQueryMin, containerWidth } = theme;
+const { containerWidth } = theme;
 
 const pageSettings = {
   title: 'Lars van der Niet',

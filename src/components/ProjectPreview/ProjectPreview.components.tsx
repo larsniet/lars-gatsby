@@ -2,15 +2,9 @@ import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image'
 
 import theme from '../../styles/theme'
-const { mediaQueryMin, colors } = theme;
+const { colors } = theme;
 
-export const ProjectPreviewImage = styled(BackgroundImage)`
-  transition: .3s all ease;
-  width: 100%;
-  height: 100%;
-`;
-
-export const ProjectPreviewContainer = styled.div`
+export const ProjectPreviewContainer = styled(BackgroundImage)`
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -19,7 +13,11 @@ export const ProjectPreviewContainer = styled.div`
   transition: .3s all ease;
   margin-bottom: 3em;
 
-  &:hover ${ProjectPreviewImage} {
+  &:after {
+    transition: .3s all ease !important;
+  }
+
+  &:hover:after {
     transform: rotate(-1.6deg) scale(1.06);
   }
 `;
