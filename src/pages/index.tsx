@@ -192,7 +192,7 @@ export const pageQuery = graphql`
             hex
           }
           featuredphoto {
-            fluid {
+            fluid(maxWidth: 500) {
               ...GatsbyDatoCmsFluid
             }
           }
