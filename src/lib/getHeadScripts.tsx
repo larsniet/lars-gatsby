@@ -33,10 +33,6 @@ const HeadScripts: React.FC<Record<string, never>> = () => {
       {`
         <meta name="robots" content="index, follow" />
         <link type="text/plain" rel="author" href="/humans.txt" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Nunito|Lato:300,400,700&display=swap"
-          rel="stylesheet"
-        />
         <script type="text/javascript">
           ${enableTagManager && tagManagerCode}
         </script>

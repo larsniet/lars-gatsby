@@ -7,8 +7,8 @@ module.exports = {
     titleTemplate: "%s · Web development zonder haken en ogen",
     description:
       "De lokale web developer waar u naar op zoek bent.",
-    siteUrl: "https://www.larsvanderniet.nl", // No trailing slash allowed!
-    image: "logo.jpg", // Path to your image you placed in the 'static' folder
+    siteUrl: "https://www.larsvanderniet.nl",
+    image: "logo.jpg",
     twitterUsername: "@larsvdniet",
   },
   plugins: [
@@ -41,7 +41,7 @@ module.exports = {
         short_name: `Lars`,
         start_url: `/`,
         background_color: `#f5f5f5`,
-        theme_color: `#f5f5f5c7`,
+        theme_color: `#f5f5f5`,
         display: `standalone`,
         icon: "src/images/logo.jpg",
         icon_options: {
