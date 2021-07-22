@@ -84,14 +84,65 @@ module.exports = {
         },
       }
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.larsvanderniet.nl',
+        sitemap: 'https://www.larsvanderniet.nl/sitemap/sitemap-index.html',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+          useMozJpeg: false,
+          stripMetadata: true,
+          defaultQuality: 75,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allDatoCmsProject {
+            nodes {
+              slug
+              meta {
+                updatedAt
+              }
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => "https://larsvanderniet.nl",
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+          allDatoCmsProject: { nodes: allProjects },
+        }) => {
+          return allPages.map(page => {
+            return { ...page, ...allProjects[page.path] }
+          })
+        },
+        serialize: ({ path, modifiedGmt }) => {
+          return {
+            url: path,
+            lastmod: modifiedGmt,
+          }
+        },
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
     "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
   ],
 };
