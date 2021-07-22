@@ -1,32 +1,7 @@
 import styled from 'styled-components'
 import theme from '../../styles/theme'
-import Container from '../../containers/Container'
 
 const { colors, containerWidth } = theme;
-
-export const Nav = styled.nav`
-    position: fixed;
-    width: 100%;
-    z-index: 10000;
-    background: ${colors.offWhiteBackground};
-`;
-
-export const NavbarContainer = styled(Container)`
-    padding: 5rem 0;
-`;
-
-export const NavbarItems = styled.div`
-    margin-left: auto;
-`;
-
-export const NavbarLogo = styled.h5`
-    color: ${colors.secondary};
-    font-weight: 800;
-    margin-bottom: 0;
-`;
-
-
-// // / / /  / / /  / / / / / /  // / / /  /
 
 export const NavWrapper = styled.nav`
     position: fixed;
@@ -41,6 +16,13 @@ export const NavWrapper = styled.nav`
     width: 100%;
     background-color: ${colors.offWhiteBackground};
 `
+
+export const NavbarLogo = styled.h5`
+    color: ${colors.secondary};
+    font-weight: 800;
+    margin-bottom: 0;
+`
+
 export const NavItems = styled.ul<{menuIsOpen: boolean}>`
     display: flex;
     justify-content: space-between;
@@ -55,7 +37,7 @@ export const NavItems = styled.ul<{menuIsOpen: boolean}>`
         width: 50%;
         height: 100%;
         text-align: center;
-        transition: 0.3s all ease;
+        transition: 0.6s all ease;
         justify-content: initial; 
     }
 `

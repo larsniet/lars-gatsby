@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Nav,
   NavbarLogo,
-  NavbarContainer,
-  NavbarItems,
   NavWrapper,
   NavItems,
   NavItem,
