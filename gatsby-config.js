@@ -8,7 +8,7 @@ module.exports = {
     description:
       "De lokale web developer waar u naar op zoek bent.",
     siteUrl: "https://www.larsvanderniet.nl", // No trailing slash allowed!
-    image: "logo.svg", // Path to your image you placed in the 'static' folder
+    image: "logo.jpg", // Path to your image you placed in the 'static' folder
     twitterUsername: "@larsvdniet",
   },
   plugins: [
@@ -43,7 +43,7 @@ module.exports = {
         background_color: `#f5f5f5`,
         theme_color: `#f5f5f5c7`,
         display: `standalone`,
-        icon: "src/images/icon.png",
+        icon: "src/images/logo.jpg",
         icon_options: {
           purpose: `any maskable`,
         },
