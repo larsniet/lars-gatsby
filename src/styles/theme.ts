@@ -249,7 +249,7 @@ const theme: Theme = {
         ul: {
             marginTop: '.5em',
             marginBottom: '0',
-            marginLeft: '1em',
+            marginLeft: '1.33em',
             marginRight: '0',
         },
         introduction: {

@@ -8,6 +8,7 @@ import Footer from '../../containers/Footer/Footer';
 
 import LayoutProps from './DefaultLayout.types';
 
+
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
@@ -15,8 +16,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <GlobalStyles />
       <Navbar />
       <Main>
+        <TypographyClassStyling />
         <Container>
-          <TypographyClassStyling />
           {children}
         </Container>
       </Main>

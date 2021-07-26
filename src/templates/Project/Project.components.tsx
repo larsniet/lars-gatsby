@@ -48,13 +48,14 @@ export const ProjectTextContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  animation: ${fadeIn} .5s ease-in;
+  animation: ${fadeIn} .7s ease-in;
 `;
 
 export const ProjectTitle = styled.h1`
   text-shadow: 0 0.0625rem 0 #000;
   color: #fff;
   line-height: normal;
+  margin-bottom: .33em;
 
   @media (${mediaQueryMin.tablet}) {
     margin-top: 2em;

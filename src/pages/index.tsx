@@ -5,10 +5,10 @@ import Lottie from 'react-lottie'
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
 import { graphql } from "gatsby"
-import SEO from '../layouts/SEO/SEO';
+import SEO from '../layouts/SEO/SEO'
 
 import theme from '../styles/theme'
-const { containerWidth } = theme;
+const { containerWidth } = theme
 
 const pageSettings = {
   title: 'Lars van der Niet',
@@ -22,6 +22,7 @@ interface Project {
   title: string
   company: string
   featuredphoto: any
+  backgroundColor: any
 };
 
 interface Props {
@@ -112,8 +113,8 @@ const LottieContainer = styled.div`
 
 
 const index: React.FC<Props> = ({ data }) => {
-  const { title, description, keywords } = pageSettings;
-  const { edges: projects } = data.allDatoCmsProject;
+  const { title, description, keywords } = pageSettings
+  const { edges: projects } = data.allDatoCmsProject
 
   let leftCol = [];
   let rightCol = [];

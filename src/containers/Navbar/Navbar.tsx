@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   const ref = useDetectClickOutside({ onTriggered: handleOutsideClick });
 
   return (
-    <NavWrapper menuIsOpen={menuIsOpen} ref={ref}>
+    <NavWrapper menuIsOpen={menuIsOpen} ref={ref} id="nav">
       <Container>
         <NavbarLogo>Lars van der Niet</NavbarLogo>
       </Container>

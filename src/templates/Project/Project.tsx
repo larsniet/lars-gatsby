@@ -13,8 +13,10 @@ import { Row, NormalCol } from '../../lib/Grid'
 import { ProjectProps, InnerProjectProps } from './Project.types'
 import { TransitionState } from 'gatsby-plugin-transition-link'
 import { graphql } from "gatsby"
-import theme from  '../../styles/theme'
 import SEO from '../../layouts/SEO/SEO'
+
+import theme from  '../../styles/theme'
+const { colors } = theme
 
 const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
   const nextProjectUrl = `/projects/${project.next.slug}`
@@ -27,6 +29,13 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
     content-box      /* clip */
     ${project.next.backgroundColor.hex}
   `;
+
+  const setOpacityNavbar = () => {
+    document.getElementById("nav").style.backgroundColor = colors.offWhite
+    setTimeout(() => {
+      document.getElementById("nav").style.backgroundColor = colors.offWhiteBackground
+    }, 1000);
+  }
 
   return (
     <ProjectContainer>
@@ -81,7 +90,8 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
         hex={theme.colors.secondary}
         duration={1}
         bg={bg}
-      >Volgend project
+        onClick={setOpacityNavbar}>
+        Volgend project
       </NextProjectLink>
     </ProjectContainer>
   )

@@ -12,6 +12,7 @@ export const ProjectPreviewContainer = styled(BackgroundImage)`
   height: 400px;
   transition: .3s all ease;
   margin-bottom: 2em;
+  cursor: pointer;
 
   &:after {
     transition: .3s all ease !important;
