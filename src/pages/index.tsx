@@ -29,7 +29,7 @@ interface Props {
   data: {
     allDatoCmsProject: {
       edges: {
-          node: Project;
+        node: Project;
       }[];
     };
   };
@@ -37,7 +37,7 @@ interface Props {
 
 const animOptions = {
   loop: false,
-  autoplay: true, 
+  autoplay: true,
   animationData: animationData,
   rendererSettings: {
     preserveAspectRatio: 'xMidYMid slice'
@@ -120,7 +120,7 @@ const index: React.FC<Props> = ({ data }) => {
   let rightCol = [];
   let half = Math.round(projects.length / 2)
   for (let i = 0; i < projects.length; i++) {
-    if (i !== half) {
+    if (i >= half) {
       rightCol.push(projects[i])
     } else {
       leftCol.push(projects[i])
@@ -128,57 +128,58 @@ const index: React.FC<Props> = ({ data }) => {
   }
 
   return (
-  <>
-    <SEO title={title} description={description} keywords={keywords} />
-    <CustomRow justify="between">
-      <NormalCol md={6}>
-        <LottieContainer>
-          <Lottie 
-            options={animOptions}
-            isClickToPauseDisabled={true}
-          />
-        </LottieContainer>
-      </NormalCol>
-      <Col md={6}>
-        <TextContainer>
-          <Title>
-            Hallo!
-          </Title>
-          <Title>
-            Ik ben Lars.
-          </Title>
-          <SubTitle>
-            Full stack developer gespecialiseerd in interactie-technologie. Woonachtig in Nederland en werkzaam door heel Europa.
-          </SubTitle>
-        </TextContainer>
-      </Col>
-    </CustomRow>
-    <Row>
-      <CustomCol md={6}>
-        {leftCol.map(({ node: project }) => (
-          <ProjectPreview 
-            key={project.id}
-            href={`/projects/${project.slug}`}
-            imgSrc={project.featuredphoto.fluid}
-            backgroundColor={project.backgroundColor.hex}
-            title={project.title}
-            sub={project.company} />
-        ))}
-      </CustomCol>
-      <OffsetCol md={6}>
-        {rightCol.map(({ node: project }) => (
-          <ProjectPreview 
-            key={project.id}
-            href={`/projects/${project.slug}`}
-            imgSrc={project.featuredphoto.fluid}
-            backgroundColor={project.backgroundColor.hex}
-            title={project.title}
-            sub={project.company} />
-        ))}
-      </OffsetCol>
-    </Row>
-  </>
-)};
+    <>
+      <SEO title={title} description={description} keywords={keywords} />
+      <CustomRow justify="between">
+        <NormalCol md={6}>
+          <LottieContainer>
+            <Lottie
+              options={animOptions}
+              isClickToPauseDisabled={true}
+            />
+          </LottieContainer>
+        </NormalCol>
+        <Col md={6}>
+          <TextContainer>
+            <Title>
+              Hallo!
+            </Title>
+            <Title>
+              Ik ben Lars.
+            </Title>
+            <SubTitle>
+              Full stack developer gespecialiseerd in interactie-technologie. Woonachtig in Nederland en werkzaam door heel Europa.
+            </SubTitle>
+          </TextContainer>
+        </Col>
+      </CustomRow>
+      <Row>
+        <CustomCol md={6}>
+          {leftCol.map(({ node: project }) => (
+            <ProjectPreview
+              key={project.id}
+              href={`/projects/${project.slug}`}
+              imgSrc={project.featuredphoto.fluid}
+              backgroundColor={project.backgroundColor.hex}
+              title={project.title}
+              sub={project.company} />
+          ))}
+        </CustomCol>
+        <OffsetCol md={6}>
+          {rightCol.map(({ node: project }) => (
+            <ProjectPreview
+              key={project.id}
+              href={`/projects/${project.slug}`}
+              imgSrc={project.featuredphoto.fluid}
+              backgroundColor={project.backgroundColor.hex}
+              title={project.title}
+              sub={project.company} />
+          ))}
+        </OffsetCol>
+      </Row>
+    </>
+  )
+};
 
 export const pageQuery = graphql`
   query PostIndex {
