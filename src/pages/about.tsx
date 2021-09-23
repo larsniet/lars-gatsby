@@ -23,7 +23,7 @@ const About: React.FC<AboutProps> = ({ pageContext: projectShell, data }) => {
 
   return (
     <>
-      <Row direction="column-reverse">
+      <Row>
         <Col md={6}>
           <ProjectImage fluid={about.profilepicture.fluid} />
         </Col>
