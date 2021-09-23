@@ -107,21 +107,21 @@ module.exports = {
             options: {
                 query: `
         {
-          allSitePage {
-            nodes {
-              path
+            allSitePage {
+                nodes {
+                path
+                }
             }
-          }
-          allDatoCmsProject {
-            nodes {
-              slug
-              meta {
-                updatedAt
-              }
+            allDatoCmsProject {
+                nodes {
+                slug
+                meta {
+                    updatedAt
+                }
+                }
             }
-          }
-        }
-      `,
+            }
+        `,
                 resolveSiteUrl: () => 'https://larsvanderniet.nl',
                 resolvePages: ({
                     allSitePage: { nodes: allPages },
