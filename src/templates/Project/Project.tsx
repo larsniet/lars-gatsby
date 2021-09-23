@@ -95,7 +95,7 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
       </NextProjectLink>
     </ProjectContainer>
   )
-}
+} 
 
 const Project: React.FC<ProjectProps> = ({ pageContext: projectShell, data }) => {
   const { project, next } = data;

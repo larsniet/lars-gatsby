@@ -5,6 +5,7 @@ const { colors, mediaQueryMin } = theme;
 
 export const FooterContainer = styled.footer`
     position: relative;
+    margin-top: 100px;
     width: 100%;
     height: 400px;
 `;
@@ -57,7 +58,7 @@ export const ContactMe = styled.h5`
             bottom: -3px;
             width: 0;
             height: 3px;
-            background-color: ${ colors.white };
+            background-color: ${colors.white};
             transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             right: auto;
             width: 100%;
@@ -92,7 +93,7 @@ export const BuildBy = styled.p`
             bottom: -3px;
             width: 0;
             height: 1px;
-            background-color: ${ colors.white };
+            background-color: ${colors.white};
             transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             right: auto;
             width: 100%;
