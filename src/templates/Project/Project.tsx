@@ -15,7 +15,7 @@ import { TransitionState } from 'gatsby-plugin-transition-link'
 import { graphql } from "gatsby"
 import SEO from '../../layouts/SEO/SEO'
 
-import theme from  '../../styles/theme'
+import theme from '../../styles/theme'
 const { colors } = theme
 
 const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
@@ -41,15 +41,15 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
     <ProjectContainer>
       <SEO title={project.company} description={project.title} keywords={project.title} />
       <ProjectImageContainer>
-        <ProjectImage 
+        <ProjectImage
           Tag="section"
           fluid={project.featuredphoto.fluid}
           objectFit="cover"
           backgroundColor={project.backgroundColor.hex}
         />
         <ProjectTextContainer>
-          <ProjectTitle>{ project.title }</ProjectTitle>
-          <ProjectSub>{ project.company }</ProjectSub>
+          <ProjectTitle>{project.title}</ProjectTitle>
+          <ProjectSub>{project.company}</ProjectSub>
         </ProjectTextContainer>
       </ProjectImageContainer>
 
@@ -70,7 +70,7 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
               </NormalCol>
               <NormalCol md={6}>
                 <ul>
-                  {project.roles.value.document.children.map(( role ) => (
+                  {project.roles.value.document.children.map((role) => (
                     <li key={role.children[0].value}><p>{role.children[0].value}</p></li>
                   ))}
                 </ul>
@@ -81,12 +81,12 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
             <p>{project.description}</p>
           </NormalCol>
         </Row>
-      </ProjectOverview>  
-    
-      <NextProjectLink 
-        cover 
+      </ProjectOverview>
+
+      <NextProjectLink
+        cover
         direction="left"
-        to={nextProjectUrl} 
+        to={nextProjectUrl}
         hex={theme.colors.secondary}
         duration={1}
         bg={bg}
