@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { LinkCustomProps } from './LinkCustom.types'
-import { StyledTransitionLink } from './LinkCustom.components'
+import TransitionLink from 'gatsby-plugin-transition-link';
 
-export const LinkCustom: React.FC<LinkCustomProps> = ({ className, children, url, effect, lenght }) => {
+const MobileLink: React.FC<LinkCustomProps> = ({ className, children, url, effect, lenght, onClick }) => {
   const exitTransition = {
     length: lenght,
     zIndex: 1,
@@ -42,17 +42,18 @@ export const LinkCustom: React.FC<LinkCustomProps> = ({ className, children, url
 
   return (
     <>
-      <StyledTransitionLink
+      <TransitionLink
         activeClassName="any"
         className={className}
         to={url}
         exit={exitTransition}
         entry={entryTransition}
+        onClick={onClick}
       >
         {children}
-      </StyledTransitionLink>
+      </TransitionLink>
     </>
   );
 };
 
-export default LinkCustom;
+export default MobileLink;

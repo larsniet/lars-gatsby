@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 import theme from '../../styles/theme'
+import { motion } from "framer-motion";
+import {
+    MobileNavWrapperProps,
+    MobileNavBackgroundProps,
+    NavWrapperProps
+} from './Navbar.types'
 
 const { colors, containerWidth } = theme;
 
-export const NavWrapper = styled.nav<{menuIsOpen: boolean}>`
+export const NavWrapper = styled.nav<NavWrapperProps>`
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +17,7 @@ export const NavWrapper = styled.nav<{menuIsOpen: boolean}>`
     justify-content: space-between;
     align-items: center;
     padding: 2.2em 0;
-    z-index: 9999;
+    z-index: 98;
     flex-direction: row;
     width: 100%;
     transition: .6s all ease;
@@ -20,69 +26,69 @@ export const NavWrapper = styled.nav<{menuIsOpen: boolean}>`
 `
 
 export const NavbarLogo = styled.h5`
-    color: ${colors.secondary};
     font-weight: 800;
     margin-bottom: 0;
+
+    & a {
+        color: ${colors.secondary};
+    }
 `
 
-export const NavItems = styled.ul<{menuIsOpen: boolean}>`
+export const NavItems = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     @media(max-width: ${containerWidth.tablet}) {
-        position: fixed;
-        left: ${(props) => (props.menuIsOpen ? '50%' : '100%')};
-        top: 6.3rem;
-        flex-direction: column;
-        background-color: ${colors.offWhiteBackground};
-        width: 50%;
-        height: 100%;
-        text-align: center;
-        transition: 0.6s all ease;
-        justify-content: initial; 
+        display: none;
     }
 `
 
 export const NavItem = styled.li`
     list-style-type: none;
-
-    @media(max-width: ${containerWidth.tablet}) {
-        margin: 1.5rem 0;
-    }
 `
 
-export const Hamburger = styled.button<{menuIsOpen: boolean}>`
+export const MobileNavWrapper = styled(motion.nav) <MobileNavWrapperProps>`
+    position: fixed;
     display: none;
-    border: none;
-    background: transparent;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 99;
 
-
-    & span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-        background-color: ${colors.secondary};
-
-        &:first-child {
-            transform: ${(props) => (props.menuIsOpen ? 'translateY(8px) rotate(45deg);' : 'none')};
-        }
-
-        &:nth-child(2) {
-            opacity: ${(props) => (props.menuIsOpen ? '0' : '1')};
-        }
-
-        &:last-child {
-            transform: ${(props) => (props.menuIsOpen ? 'translateY(-8px) rotate(-45deg);' : 'none')};
-        }
-    }
+    pointer-events: ${props => props.menuIsOpen ? 'all' : 'none'};
 
     @media(max-width: ${containerWidth.tablet}) {
         display: block;
-        cursor: pointer;
     }
-`
+`;
 
+export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background: ${colors.secondary};
+`;
+
+export const sidebar = {
+    open: (height = 1000) => ({
+        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+        transition: {
+            type: "spring",
+            stiffness: 20,
+            restDelta: 2
+        }
+    }),
+    closed: (height = window.innerHeight) => ({
+        clipPath: `circle(30px at ${300 - 40}px ${height - 45}px)`,
+        transition: {
+            delay: 0.2,
+            type: "spring",
+            stiffness: 400,
+            damping: 40
+        }
+    })
+};

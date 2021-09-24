@@ -105,7 +105,7 @@ const GlobalStyles = createGlobalStyle`
     q:before, q:after { content: '';content: none; }
     table { border-collapse: collapse; border-spacing: 0; }
     html { font-size: 1em; background: ${theme.colors.background} }
-    a { color: ${theme.colors.primary}; text-decoration: none }
+    a { text-decoration: none }
     img { width: 100%; height: auto; margin:0; padding: 0}
     ${typographyElementStyling}
 
@@ -144,6 +144,102 @@ const GlobalStyles = createGlobalStyle`
         font-size: 80%;
     }
     hr { margin: 42px 0; }
+    .refresh {
+        padding: 10px;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    @keyframes rotateAngle {
+	0% {
+		transform: rotateY(0deg) rotateX(10deg);
+		animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+	}
+	25% {
+		transform: rotateY(20deg) rotateX(10deg);
+	}
+	50% {
+		transform: rotateY(0deg) rotateX(10deg);
+		animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+	}
+	75% {
+		transform: rotateY(-20deg) rotateX(10deg);
+	}
+	100% {
+		transform: rotateY(0deg) rotateX(10deg);
+	}
+}
+
+@keyframes translateWobble {
+  0% {
+		opacity: 0;
+		transform: translate3d(
+			calc(var(--z) * 0px), 
+			calc(var(--z) * 0px), 
+			calc(var(--z) * 0px)
+		);
+  }
+  16% {
+		transform: translate3d(
+			calc(var(--z) * 160px), 
+			calc(var(--z) * 160px), 
+			calc(var(--z) * 160px)
+		);
+  }
+  28% {
+		opacity: 1;
+		transform: translate3d(
+			calc(var(--z) * 70px), 
+			calc(var(--z) * 70px), 
+			calc(var(--z) * 70px)
+		);
+  }
+  44% {
+		transform: translate3d(
+			calc(var(--z) * 130px), 
+			calc(var(--z) * 130px), 
+			calc(var(--z) * 130px)
+		);
+  }
+  59% {
+		transform: translate3d(
+			calc(var(--z) * 85px), 
+			calc(var(--z) * 85px), 
+			calc(var(--z) * 85px)
+		);
+  }
+  73% {
+		transform: translate3d(
+			calc(var(--z) * 110px), 
+			calc(var(--z) * 110px), 
+			calc(var(--z) * 110px)
+		);
+  }
+	88% {
+		opacity: 1;
+		transform: translate3d(
+			calc(var(--z) * 90px), 
+			calc(var(--z) * 90px), 
+			calc(var(--z) * 90px)
+		);
+  }
+  100% {
+		opacity: 1;
+		transform: translate3d(
+			calc(var(--z) * 100px), 
+			calc(var(--z) * 100px), 
+			calc(var(--z) * 100px)
+		);
+  }
+}
 `;
 
 export { GlobalStyles };

@@ -27,7 +27,7 @@ const About: React.FC<AboutProps> = ({ pageContext: projectShell, data }) => {
         <Col md={6}>
           <ProjectImage fluid={about.profilepicture.fluid} />
         </Col>
-        <Col md={6}>
+        <Col md={6} style={{ marginTop: "20px" }}>
           <Title>Golfsurfer, kitesurfer, 4e-jaars student en full stack developer</Title>
           <SubTitle>Mijn naam is Lars van der Niet. Ongeveer 4 jaar geleden ben ik begonnen bij de opleiding Informatica. Al snel kwam ik er achter dat Interactie-Technologie mijn passie is.</SubTitle>
           <SubTitle>Ondertussen is er veel veranderd op zowel persoonlijk als professioneel gebied. Zo ben ik gestart met het maken van een paar simpele portfolio websites voor kleine bedrijven en is dit uiteindelijk uitgegroeid tot het kunnen realiseren van dashboards die datavisualisatie mogelijk maken voor complexe datasets.</SubTitle>

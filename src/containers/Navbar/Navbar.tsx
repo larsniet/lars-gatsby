@@ -1,50 +1,64 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   NavbarLogo,
   NavWrapper,
   NavItems,
   NavItem,
-  Hamburger
+  MobileNavWrapper,
+  MobileNavBackground,
+  sidebar
 } from './Navbar.components'
+import { MobileNav } from '../../components/MobileNav/MobileNav';
 import { NavbarProps } from './Navbar.types'
 import { CustomLinkUnderline } from '../../components/Transitions/LinkCustom.components'
 import Container from '../../containers/Container';
 import { useDetectClickOutside } from 'react-detect-click-outside';
-
+import { useDimensions } from "../../lib/use-dimensions";
+import { MenuToggle } from '../../components/MenuToggle/MenuToggle'
+import MobileLink from '../../components/Transitions/MobileLink';
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const toggleMenu = () => setMenuIsOpen(!menuIsOpen);
-  const handleOutsideClick = () => {
-    if (menuIsOpen) {
-      console.log("menu is open en er is geklikt");
-      toggleMenu();
-    }
+  const closeMenu = () => {
+    setMenuIsOpen(false);
   }
-
-  const ref = useDetectClickOutside({ onTriggered: handleOutsideClick });
+  const ref = useDetectClickOutside({ onTriggered: closeMenu });
+  const { height } = useDimensions(ref);
 
   return (
-    <NavWrapper menuIsOpen={menuIsOpen} ref={ref} id="nav">
-      <Container>
-        <NavbarLogo>Lars van der Niet</NavbarLogo>
-      </Container>
-      <Container>
-        <NavItems menuIsOpen={menuIsOpen}>
-          <NavItem onClick={toggleMenu}>
-            <CustomLinkUnderline url={'/'} effect="fade" lenght={.3}>Werk</CustomLinkUnderline>
-          </NavItem>
-          <NavItem onClick={toggleMenu}>
-            <CustomLinkUnderline url={'/about'} effect="fade" lenght={.3}>Over Lars</CustomLinkUnderline>
-          </NavItem>
-        </NavItems>
-        <Hamburger menuIsOpen={menuIsOpen} onClick={toggleMenu} aria-label="Navigation button">
-          <span />
-          <span />
-          <span />
-        </Hamburger>
-      </Container>
-    </NavWrapper>
+    <>
+      <NavWrapper menuIsOpen={menuIsOpen} id="nav">
+        <Container>
+          <NavbarLogo>
+            <MobileLink url="/" effect="fade" lenght={.5}>
+              Lars van der Niet
+            </MobileLink>
+          </NavbarLogo>
+        </Container>
+        <Container>
+          <NavItems>
+            <NavItem>
+              <CustomLinkUnderline url={'/'} effect="fade" lenght={.5}>Werk</CustomLinkUnderline>
+            </NavItem>
+            <NavItem>
+              <CustomLinkUnderline url={'/about'} effect="fade" lenght={.5}>Over Lars</CustomLinkUnderline>
+            </NavItem>
+          </NavItems>
+        </Container>
+      </NavWrapper >
+      <MobileNavWrapper
+        initial={false}
+        animate={menuIsOpen ? "open" : "closed"}
+        custom={height}
+        ref={ref}
+        menuIsOpen={menuIsOpen}
+      >
+        <MobileNavBackground variants={sidebar} />
+        <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
+        <MenuToggle toggle={() => toggleMenu()} />
+      </MobileNavWrapper>
+    </>
   );
 };
 

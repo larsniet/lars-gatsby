@@ -7,4 +7,6 @@ export interface LinkCustomProps {
   url: string;
   effect?: string;
   lenght?: number;
+  toggleMenu?: any;
+  onClick?: any;
 }
