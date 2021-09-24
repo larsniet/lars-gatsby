@@ -6,6 +6,7 @@ import {
     MobileNavBackgroundProps,
     NavWrapperProps
 } from './Navbar.types'
+import { useEffect, useState } from 'react';
 
 const { colors, containerWidth } = theme;
 
@@ -73,6 +74,11 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
     background: ${colors.secondary};
 `;
 
+const getHeight = () => {
+    if (typeof window !== undefined) {
+        return window.innerHeight;
+    }
+}
 export const sidebar = {
     open: (height = 1000) => ({
         clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -82,8 +88,8 @@ export const sidebar = {
             restDelta: 2
         }
     }),
-    closed: (height = window.innerHeight) => ({
-        clipPath: `circle(30px at ${300 - 40}px ${height - 45}px)`,
+    closed: () => ({
+        clipPath: `circle(30px at ${300 - 40}px ${getHeight() - 45}px)`,
         transition: {
             delay: 0.2,
             type: "spring",
@@ -91,4 +97,4 @@ export const sidebar = {
             damping: 40
         }
     })
-};
+}
