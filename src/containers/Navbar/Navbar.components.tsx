@@ -76,7 +76,11 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
 
 const getHeight = () => {
     if (typeof window !== undefined) {
-        return window.innerHeight;
+        if (window) {
+            return window.innerHeight;
+        } else {
+            return 1000;
+        }
     }
 }
 export const sidebar = {
