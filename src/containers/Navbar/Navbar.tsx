@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   NavbarLogo,
   NavWrapper,
@@ -13,18 +13,19 @@ import { NavbarProps } from './Navbar.types'
 import { CustomLinkUnderline } from '../../components/Transitions/LinkCustom.components'
 import Container from '../../containers/Container';
 import { useDetectClickOutside } from 'react-detect-click-outside';
-import { useDimensions } from "../../lib/use-dimensions";
+import { useDimensionsWithRef, getDimensions } from "../../lib/use-dimensions";
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle'
 import MobileLink from '../../components/Transitions/MobileLink';
+import { debounce } from 'debounce'
+
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const toggleMenu = () => setMenuIsOpen(!menuIsOpen);
-  const closeMenu = () => {
-    setMenuIsOpen(false);
-  }
+  const closeMenu = () => { setMenuIsOpen(false) }
   const ref = useDetectClickOutside({ onTriggered: closeMenu });
-  const { height } = useDimensions(ref);
+  const { height } = useDimensionsWithRef(ref);
+  const dimensions = getDimensions();
 
   return (
     <>
@@ -54,12 +55,12 @@ const Navbar: React.FC<NavbarProps> = () => {
         ref={ref}
         menuIsOpen={menuIsOpen}
       >
-        <MobileNavBackground variants={sidebar} />
+        <MobileNavBackground variants={sidebar(dimensions.windowHeight)} />
         <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
         <MenuToggle toggle={() => toggleMenu()} />
       </MobileNavWrapper>
     </>
   );
-};
+}
 
 export default Navbar;

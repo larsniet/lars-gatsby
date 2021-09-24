@@ -74,31 +74,25 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
     background: ${colors.secondary};
 `;
 
-const getHeight = () => {
-    if (typeof window !== undefined) {
-        if (window) {
-            return window.innerHeight;
-        } else {
-            return 1000;
-        }
+
+export const sidebar = (clientHeight) => {
+    return {
+        open: (height = 1000) => ({
+            clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+            transition: {
+                type: "spring",
+                stiffness: 20,
+                restDelta: 2
+            }
+        }),
+        closed: () => ({
+            clipPath: `circle(30px at ${300 - 40}px ${clientHeight - 45}px)`,
+            transition: {
+                delay: 0.2,
+                type: "spring",
+                stiffness: 400,
+                damping: 40
+            }
+        })
     }
-}
-export const sidebar = {
-    open: (height = 1000) => ({
-        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-        transition: {
-            type: "spring",
-            stiffness: 20,
-            restDelta: 2
-        }
-    }),
-    closed: () => ({
-        clipPath: `circle(30px at ${300 - 40}px ${getHeight() - 45}px)`,
-        transition: {
-            delay: 0.2,
-            type: "spring",
-            stiffness: 400,
-            damping: 40
-        }
-    })
 }

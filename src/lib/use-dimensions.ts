@@ -1,10 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { debounce } from 'debounce'
 
-// Naive implementation - in reality would want to attach
-// a window or resize listener. Also use state/layoutEffect instead of ref/effect
-// if this is important to know on initial client render.
-// It would be safer to  return null for unmeasured states.
-export const useDimensions = ref => {
+export const useDimensionsWithRef = ref => {
   const dimensions = useRef({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -13,4 +10,30 @@ export const useDimensions = ref => {
   }, []);
 
   return dimensions.current;
+};
+
+
+export const getDimensions = () => {
+  let height;
+  let width;
+
+  if (typeof window !== `undefined`) {
+    height = window.innerHeight
+    width = window.innerWidth
+  }
+
+  const [dimensions, setDimensions] = useState({
+    windowHeight: height,
+    windowWidth: width,
+  })
+
+  const debouncedHandleResize = debounce(function handleResize() {
+    setDimensions({
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth,
+    });
+  }, 1000);
+  
+  window.addEventListener(`resize`, debouncedHandleResize)
+  return dimensions;
 };
