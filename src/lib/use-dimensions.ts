@@ -34,6 +34,8 @@ export const getDimensions = () => {
     });
   }, 1000);
   
-  window.addEventListener(`resize`, debouncedHandleResize)
+  if (typeof window !== `undefined`) {
+    window.addEventListener(`resize`, debouncedHandleResize)
+  }
   return dimensions;
 };
