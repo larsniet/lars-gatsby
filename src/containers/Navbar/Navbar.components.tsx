@@ -68,7 +68,7 @@ export const MobileNavWrapper = styled(motion.nav) <MobileNavWrapperProps>`
 `;
 
 export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>`
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -79,15 +79,15 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
 
 export const sidebar = {
     open: (windowHeight) => ({
-        clipPath: `circle(${windowHeight + 200}px at 40px 90%)`,
+        clipPath: `circle(${windowHeight + 200}px at 40px 40px)`,
         transition: {
             type: "spring",
             stiffness: 20,
             restDelta: 2
         }
     }),
-    closed: () => ({
-        clipPath: `circle(28px at ${300 - 45}px 90%)`,
+    closed: (windowHeight) => ({
+        clipPath: `circle(30px at ${300 - 60}px ${windowHeight - 65}px)`,
         transition: {
             delay: 0.2,
             type: "spring",
