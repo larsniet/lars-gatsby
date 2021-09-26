@@ -82,8 +82,8 @@ export const sidebar = (dimensions) => {
             clipPath: `circle(${dimensions[1] - 300}px at ${dimensions[0] - 150}px ${dimensions[1] - 65}px)`,
             transition: {
                 type: "spring",
-                stiffness: 20,
-                restDelta: 2
+                stiffness: 40,
+                restDelta: 1
             }
         },
         closed: {
@@ -91,8 +91,8 @@ export const sidebar = (dimensions) => {
             transition: {
                 delay: 0.2,
                 type: "spring",
-                stiffness: 400,
-                damping: 40
+                stiffness: 300,
+                damping: 30
             }
         }
     }
