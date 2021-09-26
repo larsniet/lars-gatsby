@@ -17,6 +17,7 @@ export const getDimensions = () => {
     const [dimension, setDimension] = useState([window.innerWidth, window.innerHeight]);
 
     useEffect(() => {
+        if (typeof window !== `undefined`) {
         window.addEventListener("resize", () => {
             setDimension([window.innerWidth, window.innerHeight])
         });
@@ -25,6 +26,7 @@ export const getDimensions = () => {
                 setDimension([window.innerWidth, window.innerHeight])
             })
         }
+    }
     }, []);
     
     return dimension;

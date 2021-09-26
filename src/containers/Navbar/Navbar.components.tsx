@@ -87,7 +87,7 @@ export const sidebar = {
         }
     }),
     closed: () => ({
-        clipPath: `circle(28px at ${300 - 33}px 91.3%)`,
+        clipPath: `circle(28px at ${300 - 45}px 90%)`,
         transition: {
             delay: 0.2,
             type: "spring",
