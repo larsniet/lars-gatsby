@@ -29,5 +29,7 @@ export const getDimensions = () => {
         }, []);
         
         return dimension;
+    } else {
+        return [1000, 1000] // Fallback
     }
 };
