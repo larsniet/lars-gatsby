@@ -21,13 +21,14 @@ import { debounce } from 'debounce'
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const toggleMenu = () => setMenuIsOpen(!menuIsOpen);
-  const closeMenu = () => { setMenuIsOpen(false) }
+  const closeMenu = () => setMenuIsOpen(false);
+
   const ref = useDetectClickOutside({ onTriggered: closeMenu });
   const { height } = useDimensionsWithRef(ref);
-  const [windowWidth, windowHeight] = getDimensions();
+  const dimensions = getDimensions();
 
   useEffect(() => {
-  }, [windowWidth, windowHeight])
+  }, [dimensions])
 
   return (
     <>
@@ -55,9 +56,9 @@ const Navbar: React.FC<NavbarProps> = () => {
         animate={menuIsOpen ? "open" : "closed"}
         custom={height}
         ref={ref}
-        menuIsOpen={menuIsOpen}
       >
-        <MobileNavBackground variants={sidebar} custom={windowHeight} />
+        <MobileNavBackground menuIsOpen={menuIsOpen}
+          variants={sidebar(dimensions)} key={dimensions.toString()} />
         <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
         <MenuToggle toggle={() => toggleMenu()} />
       </MobileNavWrapper>

@@ -57,10 +57,9 @@ export const MobileNavWrapper = styled(motion.nav) <MobileNavWrapperProps>`
     top: 0;
     right: 0;
     bottom: 0;
-    width: 300px;
+    width: 100%;
     z-index: 99;
-
-    pointer-events: ${props => props.menuIsOpen ? 'all' : 'none'};
+    pointer-events: none;
 
     @media(max-width: ${containerWidth.tablet}) {
         display: block;
@@ -72,27 +71,29 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
     top: 0;
     right: 0;
     bottom: 0;
-    width: 300px;
+    width: 100%;
     background: ${colors.secondary};
 `;
 
 
-export const sidebar = {
-    open: (windowHeight) => ({
-        clipPath: `circle(${windowHeight + 200}px at 40px 40px)`,
-        transition: {
-            type: "spring",
-            stiffness: 20,
-            restDelta: 2
+export const sidebar = (dimensions) => {
+    return {
+        open: {
+            clipPath: `circle(${dimensions[1] - 300}px at ${dimensions[0] - 150}px ${dimensions[1] - 65}px)`,
+            transition: {
+                type: "spring",
+                stiffness: 20,
+                restDelta: 2
+            }
+        },
+        closed: {
+            clipPath: `circle(30px at ${dimensions[0] - 60}px ${dimensions[1] - 65}px)`,
+            transition: {
+                delay: 0.2,
+                type: "spring",
+                stiffness: 400,
+                damping: 40
+            }
         }
-    }),
-    closed: (windowHeight) => ({
-        clipPath: `circle(30px at ${300 - 60}px ${windowHeight - 65}px)`,
-        transition: {
-            delay: 0.2,
-            type: "spring",
-            stiffness: 400,
-            damping: 40
-        }
-    })
+    }
 }

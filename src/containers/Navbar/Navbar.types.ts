@@ -17,10 +17,9 @@ export interface MobileNavWrapperProps {
     animate: any; 
     custom: any; 
     ref: any;
-    menuIsOpen: boolean;
 }
 
 export interface MobileNavBackgroundProps {
     variants: any;
-    custom: any;
+    menuIsOpen: boolean;
 }

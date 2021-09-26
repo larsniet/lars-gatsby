@@ -7,20 +7,20 @@ import MobileLink from "../Transitions/MobileLink";
 import theme from "../../styles/theme";
 
 const variants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -100 }
-    }
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 }
-    }
-  }
+	open: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			y: { stiffness: 1000, velocity: -100 }
+		}
+	},
+	closed: {
+		y: 100,
+		opacity: 0,
+		transition: {
+			y: { stiffness: 1000 }
+		}
+	}
 };
 
 const List = styled(motion.li)`
@@ -93,15 +93,15 @@ const Item = styled.div`
 `;
 
 export const MenuItem: React.FC<MenuItemProps> = ({ url, text, onClick }) => {
-  return (
-    <MobileLink url={url} effect="fade" lenght={.5} onClick={onClick}>
-      <List
-        variants={variants}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Item>{text}</Item>
-      </List >
-    </MobileLink >
-  );
+	return (
+		<MobileLink url={url} effect="fade" lenght={.5} onClick={onClick}>
+			<List
+				variants={variants}
+				whileHover={{ scale: 1.1 }}
+				whileTap={{ scale: 0.95 }}
+			>
+				<Item>{text}</Item>
+			</List >
+		</MobileLink >
+	);
 };
