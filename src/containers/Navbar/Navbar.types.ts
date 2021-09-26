@@ -22,4 +22,5 @@ export interface MobileNavWrapperProps {
 
 export interface MobileNavBackgroundProps {
     variants: any;
+    custom: any;
 }

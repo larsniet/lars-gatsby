@@ -14,28 +14,19 @@ export const useDimensionsWithRef = ref => {
 
 
 export const getDimensions = () => {
-  let height;
-  let width;
+    const [dimension, setDimension] = useState([window.innerWidth, window.innerHeight]);
 
-  if (typeof window !== `undefined`) {
-    height = window.innerHeight
-    width = window.innerWidth
-  }
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setDimension([window.innerWidth, window.innerHeight])
+        });
+        return () => {
+            window.removeEventListener("resize", () => {
+                setDimension([window.innerWidth, window.innerHeight])
+            })
+        }
+    }, []);
+    
+    return dimension;
 
-  const [dimensions, setDimensions] = useState({
-    windowHeight: height,
-    windowWidth: width,
-  })
-
-  const debouncedHandleResize = debounce(function handleResize() {
-    setDimensions({
-      windowHeight: window.innerHeight,
-      windowWidth: window.innerWidth,
-    });
-  }, 1000);
-  
-  if (typeof window !== `undefined`) {
-    window.addEventListener(`resize`, debouncedHandleResize)
-  }
-  return dimensions;
 };

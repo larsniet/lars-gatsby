@@ -18,14 +18,16 @@ import { MenuToggle } from '../../components/MenuToggle/MenuToggle'
 import MobileLink from '../../components/Transitions/MobileLink';
 import { debounce } from 'debounce'
 
-
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const toggleMenu = () => setMenuIsOpen(!menuIsOpen);
   const closeMenu = () => { setMenuIsOpen(false) }
   const ref = useDetectClickOutside({ onTriggered: closeMenu });
   const { height } = useDimensionsWithRef(ref);
-  const dimensions = getDimensions();
+  const [windowWidth, windowHeight] = getDimensions();
+
+  useEffect(() => {
+  }, [windowWidth, windowHeight])
 
   return (
     <>
@@ -55,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         ref={ref}
         menuIsOpen={menuIsOpen}
       >
-        <MobileNavBackground variants={sidebar(dimensions.windowHeight)} />
+        <MobileNavBackground variants={sidebar} custom={windowHeight} />
         <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
         <MenuToggle toggle={() => toggleMenu()} />
       </MobileNavWrapper>

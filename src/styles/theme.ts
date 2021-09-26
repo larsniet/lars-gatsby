@@ -304,7 +304,7 @@ const theme: Theme = {
     breakpointMobileMenu: '68rem',
     breakpoint: breakpoints,
     containerWidth: {
-        tablet: '768px',
+        tablet: '767px',
         xs: '2vw',
         sm: '4vw',
         md: '8vw',
@@ -312,7 +312,7 @@ const theme: Theme = {
         xl: '15vw',
     },
     mediaQueryMin: {
-        tablet: `min-width: 768px`,
+        tablet: `min-width: 767px`,
         xs: `min-width: ${breakpoints.xs}`,
         sm: `min-width: ${breakpoints.sm}`,
         md: `min-width: ${breakpoints.md}`,

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MenuToggleBtn = styled.button<{ onClick: any }>`
+export const MenuToggleBtn = styled.a<{ onClick: any }>`
     outline: none;
     border: none;
     -webkit-user-select: none;
@@ -9,11 +9,14 @@ export const MenuToggleBtn = styled.button<{ onClick: any }>`
     user-select: none;
     cursor: pointer;
     position: absolute;
-    bottom: 18px;
-    right: 15px;
-    width: 50px;
-    height: 50px;
+    top: 90%;
+    right: 20px;
+    width: auto;
+    height: auto;
     border-radius: 50%;
     background: transparent;
     pointer-events: all;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
 `;
