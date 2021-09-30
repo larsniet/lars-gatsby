@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
-export const MobileNavList = styled(motion.ul) <{ variants: any }>`
+export const MobileNavList = styled(motion.ul) <{
+  variants: any, menuIsOpen: boolean;
+}>`
   position: absolute;
   bottom: 100px;
   left: 0; 
@@ -13,5 +15,5 @@ export const MobileNavList = styled(motion.ul) <{ variants: any }>`
 	flex-direction: column;
 	transform: rotatex(10deg);
 	animation: rotateAngle 6s linear infinite;
-  pointer-events: all;
+  pointer-events: ${(props) => props.menuIsOpen ? "all" : "none"};
 `;

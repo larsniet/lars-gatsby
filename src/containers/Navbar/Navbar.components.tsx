@@ -73,6 +73,7 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
     bottom: 0;
     width: 100%;
     background: ${colors.secondary};
+    pointer-events: none;
 `;
 
 

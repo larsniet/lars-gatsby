@@ -25,7 +25,7 @@ const navItems = [
 
 export const MobileNav: React.FC<MobileNavProps> = (props) => {
   return (
-    <MobileNavList variants={variants}>
+    <MobileNavList variants={variants} menuIsOpen={props.menuIsOpen}>
       {navItems.map((item, index) => (
         <MenuItem url={item.url} text={item.text} key={index} index={index} onClick={props.toggleMenu} />
       ))}
