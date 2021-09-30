@@ -63,17 +63,13 @@ const List = styled(motion.li)`
 	}
 	
 	&:after {
-		background-color: #5D00FF;
+		background-color: #b4a53d;
 	}
 	
 	&:before {
-		background-color: #FF1731;
+		background-color: ${theme.colors.primary};
 	}
 	
-	&:hover {
-		background-color: #FFF65B;
-		transition: background .3s 0.1s;
-	}
 	
 	&:hover:before {
 		--z: 0.04;
