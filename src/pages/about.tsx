@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components'
 import { graphql } from "gatsby"
 import Img from 'gatsby-image'
+import theme from '../styles/theme'
 
 import { Row, Col, NormalCol } from '../lib/Grid'
 
@@ -18,12 +19,18 @@ const SubTitle = styled.p`
   margin-bottom: 20px;
 `;
 
+const CustomRow = styled(Row)`
+  @media(max-width: ${theme.containerWidth.tablet}) {
+    flex-flow: column-reverse !important;
+  }
+`;
+
 const About: React.FC<AboutProps> = ({ pageContext: projectShell, data }) => {
   const { about } = data;
 
   return (
     <>
-      <Row direction="column-reverse">
+      <CustomRow>
         <Col md={6}>
           <ProjectImage fluid={about.profilepicture.fluid} />
           <Row style={{ marginTop: "40px" }}>
@@ -45,7 +52,7 @@ const About: React.FC<AboutProps> = ({ pageContext: projectShell, data }) => {
           <SubTitle>Ondertussen is er veel veranderd op zowel persoonlijk als professioneel gebied. Zo ben ik gestart met het maken van een paar simpele portfolio websites voor kleine bedrijven en is dit uiteindelijk uitgegroeid tot het kunnen realiseren van dashboards die datavisualisatie mogelijk maken voor complexe datasets.</SubTitle>
           <SubTitle>Uiteraard blijft er ook wat vrije tijd over. Het liefst gebruik ik deze tijd om in de zee te liggen of te sporten. Vanaf mijn 10e jaar ben ik fanatiek gaan kitesurfen. Hier heb ik een aantal jaar lang ook mijn beroep van gemaakt als kitesurfinstructeur. Momenteel beoefen ik al mijn sporten echter recreatief.</SubTitle>
         </Col>
-      </Row>
+      </CustomRow>
     </>
   );
 }

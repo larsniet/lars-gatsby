@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components';
 import {
     Container as ContainerBase,
@@ -10,7 +11,7 @@ import theme from '../styles/theme';
 const { mediaQueryMin } = theme;
 const container = theme.containerWidth;
 
-export const Container = styled(ContainerBase)<{
+export const Container = styled(ContainerBase) <{
     fluid?: boolean;
 }>`
     max-width: unset !important;
