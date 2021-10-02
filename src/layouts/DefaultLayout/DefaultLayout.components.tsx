@@ -9,6 +9,6 @@ export const Main = styled.main`
     padding-top: 200px;
 
     @media(max-width: ${containerWidth.tablet}) {
-        padding-top: 150px;
+        padding-top: 100px;
     }
 `;
