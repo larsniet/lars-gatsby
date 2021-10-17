@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import theme from "../../styles/theme"
 
-export const MobileNavList = styled(motion.ul) <{
+export const MobileNavList = styled(motion.div) <{
   variants: any, menuIsOpen: boolean;
 }>`
   position: absolute;
@@ -19,7 +19,7 @@ export const MobileNavList = styled(motion.ul) <{
   pointer-events: ${(props) => props.menuIsOpen ? "all" : "none"};
 `;
 
-export const List = styled(motion.li)`
+export const List = styled(motion.div)`
   margin: 0.5em 0;
   padding: .8em 2.2em;
   cursor: pointer;

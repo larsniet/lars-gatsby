@@ -49,7 +49,7 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
           <List variants={itemVariants}>
             <Item>{item.text}</Item>
           </List>
-        </MobileLink >
+        </MobileLink>
       ))}
     </MobileNavList>
   )
