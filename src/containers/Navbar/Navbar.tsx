@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   NavbarLogo,
   NavWrapper,
@@ -11,12 +11,11 @@ import {
 import { NavbarProps } from './Navbar.types'
 import { CustomLinkUnderline } from '../../components/Transitions/LinkCustom.components'
 import Container from '../../containers/Container';
+import { MobileNav } from '../../components/MobileNav/MobileNav'
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { useDimensionsWithRef, getDimensions } from "../../lib/use-dimensions";
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle'
 import MobileLink from '../../components/Transitions/MobileLink';
-
-const MobileNav = React.lazy(() => import('../../components/MobileNav/MobileNav').then(({ MobileNav }) => ({ default: MobileNav })));
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -59,9 +58,7 @@ const Navbar: React.FC<NavbarProps> = () => {
       >
         <MobileNavBackground menuIsOpen={menuIsOpen}
           variants={sidebar(dimensions)} key={dimensions.toString()} />
-        <Suspense fallback={<></>}>
-          <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
-        </Suspense>
+        <MobileNav menuIsOpen={menuIsOpen} toggleMenu={toggleMenu} />
         <MenuToggle toggle={() => toggleMenu()} />
       </MobileNavWrapper>
     </>
