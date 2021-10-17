@@ -16,7 +16,6 @@ import { useDetectClickOutside } from 'react-detect-click-outside';
 import { useDimensionsWithRef, getDimensions } from "../../lib/use-dimensions";
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle'
 import MobileLink from '../../components/Transitions/MobileLink';
-import { debounce } from 'debounce'
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
