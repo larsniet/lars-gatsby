@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components'
 import { graphql } from "gatsby"
 import Img from 'gatsby-image'
+import SEO from '../layouts/SEO/SEO'
 import theme from '../styles/theme'
 
 import { Row, Col, NormalCol } from '../lib/Grid'
@@ -11,6 +12,12 @@ interface AboutProps {
   pageContext: any;
   data: any;
 }
+
+const pageSettings = {
+  title: 'Lars van der Niet',
+  description: 'Golfsurfer, kitesurfer, 4e-jaars student en full stack developer',
+  keywords: 'lars van der niet, website, freelance, over mij',
+};
 
 const ProjectImage = styled(Img) <{ fluid?: boolean }> ``;
 
@@ -25,11 +32,14 @@ const CustomRow = styled(Row)`
   }
 `;
 
-const About: React.FC<AboutProps> = ({ pageContext: projectShell, data }) => {
+const About: React.FC<AboutProps> = ({ data }) => {
+  const { title, description, keywords } = pageSettings;
+  console.log(data);
   const { about } = data;
 
   return (
     <>
+      <SEO title={title} description={description} keywords={keywords} />
       <CustomRow>
         <Col md={6}>
           <ProjectImage fluid={about.profilepicture.fluid} />
@@ -63,6 +73,7 @@ export const pageQuery = graphql`
       abilities {
         value
       }
+      about
       profilepicture {
         fluid(maxWidth: 500) {
           ...GatsbyDatoCmsFluid
