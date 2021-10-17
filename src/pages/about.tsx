@@ -34,7 +34,6 @@ const CustomRow = styled(Row)`
 
 const About: React.FC<AboutProps> = ({ data }) => {
   const { title, description, keywords } = pageSettings;
-  console.log(data);
   const { about } = data;
 
   return (
