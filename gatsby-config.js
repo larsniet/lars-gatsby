@@ -146,6 +146,6 @@ module.exports = {
         'gatsby-transformer-remark',
         'gatsby-plugin-mdx',
         'gatsby-transformer-sharp',
-        'gatsby-plugin-netlify',
+        'gatsby-plugin-netlify'
     ],
 };
