@@ -28,7 +28,7 @@ export const CallToAction = styled.h2`
     width: 80%;
 
     @media (${mediaQueryMin.tablet}) {
-        margin-top: 2em;
+        margin-top: 1.8em;
     }
 
     @media (${mediaQueryMin.sm}) {
@@ -36,16 +36,18 @@ export const CallToAction = styled.h2`
     }
 `;
 
-export const ContactMe = styled.h5`
+export const ContactMe = styled.h3`
     color: #fff;
     letter-spacing: normal;
     font-weight: 100;
     margin-top: 1em;
     line-height: 1.3em;
+    font-size: 23px;
 
     @media (${mediaQueryMin.tablet}) {
         margin-top: 3em;
         letter-spacing: .1rem;
+        font-size: 18px;
     }
 
     & a {
