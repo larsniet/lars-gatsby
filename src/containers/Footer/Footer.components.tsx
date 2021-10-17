@@ -28,7 +28,7 @@ export const CallToAction = styled.h2`
     width: 80%;
 
     @media (${mediaQueryMin.tablet}) {
-        margin-top: 1.8em;
+        margin-top: 1.6em;
     }
 
     @media (${mediaQueryMin.sm}) {
@@ -45,7 +45,7 @@ export const ContactMe = styled.h3`
     font-size: 23px;
 
     @media (${mediaQueryMin.tablet}) {
-        margin-top: 3em;
+        margin-top: 3.4em;
         letter-spacing: .1rem;
         font-size: 18px;
     }
