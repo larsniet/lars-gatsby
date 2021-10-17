@@ -32,12 +32,12 @@ export const ProjectPreviewTextContainer = styled.div`
   z-index: 1;
 `;
 
-export const ProjectPreviewTitle = styled.h4`
+export const ProjectPreviewTitle = styled.h3`
   text-shadow: 0 0.0625rem 0 #000;
   color: ${colors.offWhite};
   margin-bottom: 0.33em;
 `;
 
-export const ProjectPreviewSub = styled.h6`
+export const ProjectPreviewSub = styled.h4`
   color: ${colors.offWhite};
 `;

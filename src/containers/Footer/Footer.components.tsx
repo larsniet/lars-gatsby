@@ -62,7 +62,7 @@ export const ContactMe = styled.h5`
             transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             right: auto;
             width: 100%;
-            }
+        }
 
         &:hover:before {
             right: 0;

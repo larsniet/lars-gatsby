@@ -1,7 +1,6 @@
 import React from "react"
 import { Row, Col, NormalCol } from '../lib/Grid'
 import { ProjectPreview } from '../components/ProjectPreview/ProjectPreview'
-// import lottie from 'lottie-web'
 import Lottie from "react-lottie";
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
@@ -92,12 +91,14 @@ const Title = styled.h1`
   }
 `;
 
-const SubTitle = styled.h5`
+const SubTitle = styled.h2`
   line-height: 1.3em;
-  text-align: center;
+  font-weight: 300;
+  font-size: 24px;
 
-  @media(min-width: ${containerWidth.tablet}) {
-    text-align: left;
+  @media(max-width: ${containerWidth.tablet}) {
+    text-align: center;
+    font-size: 18px;
   }
 `;
 

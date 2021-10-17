@@ -43,16 +43,16 @@ const textScaler = css`
         }
         /* ${headerSize.mobile} */
         @media (${mediaQueries.xxl}) {
-            font-size: calc(${base.fontSize}*1.5);
-        }
-        @media (${mediaQueries.xl}) {
-            font-size: calc(${base.fontSize}*1.4);
-        }
-        @media (${mediaQueries.lg}) {
             font-size: calc(${base.fontSize}*1.3);
         }
+        @media (${mediaQueries.xl}) {
+            font-size: calc(${base.fontSize}*1.2);
+        }
+        @media (${mediaQueries.lg}) {
+            font-size: calc(${base.fontSize}*1.1);
+        }
         @media (${mediaQueries.md}) {
-            font-size: calc(${base.fontSize} * 1.15);
+            font-size: calc(${base.fontSize} * 1);
             line-height: calc(${base.lineHeight.paragraph});
         }
     }

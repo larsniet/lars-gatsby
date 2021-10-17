@@ -196,7 +196,7 @@ const theme: Theme = {
         h2: {
             spacing: GlobalHeadingSettings.spacing,
             font: heading,
-            weight: GlobalHeadingSettings.weight,
+            weight: bold,
             color: GlobalHeadingSettings.color,
             marginBottom: GlobalHeadingSettings.marginBottom,
         },
@@ -210,7 +210,7 @@ const theme: Theme = {
         h4: {
             spacing: GlobalHeadingSettings.spacing,
             font: heading,
-            weight: GlobalHeadingSettings.weight,
+            weight: light,
             color: GlobalHeadingSettings.color,
             marginBottom: GlobalHeadingSettings.marginBottom,
         },

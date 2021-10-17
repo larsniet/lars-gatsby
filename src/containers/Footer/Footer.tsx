@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../../containers/Container';
-import { Row, Col, NormalCol } from '../../lib/Grid';
+import { Row, Col } from '../../lib/Grid';
 import { IconContext } from "@react-icons/all-files";
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
