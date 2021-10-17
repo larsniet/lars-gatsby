@@ -35,6 +35,7 @@ const CustomRow = styled(Row)`
 const About: React.FC<AboutProps> = ({ data }) => {
   const { title, description, keywords } = pageSettings;
   const { about } = data;
+  const aboutMe = about.about.split("\n");
 
   return (
     <>
@@ -57,9 +58,9 @@ const About: React.FC<AboutProps> = ({ data }) => {
         </Col>
         <Col md={6}>
           <Title>Golfsurfer, kitesurfer, 4e-jaars student en full stack developer</Title>
-          <SubTitle>Mijn naam is Lars van der Niet. Ongeveer 4 jaar geleden ben ik begonnen bij de opleiding Informatica. Al snel kwam ik er achter dat Interactie-Technologie mijn passie is.</SubTitle>
-          <SubTitle>Ondertussen is er veel veranderd op zowel persoonlijk als professioneel gebied. Zo ben ik gestart met het maken van een paar simpele portfolio websites voor kleine bedrijven en is dit uiteindelijk uitgegroeid tot het kunnen realiseren van dashboards die datavisualisatie mogelijk maken voor complexe datasets.</SubTitle>
-          <SubTitle>Uiteraard blijft er ook wat vrije tijd over. Het liefst gebruik ik deze tijd om in de zee te liggen of te sporten. Vanaf mijn 10e jaar ben ik fanatiek gaan kitesurfen. Hier heb ik een aantal jaar lang ook mijn beroep van gemaakt als kitesurfinstructeur. Momenteel beoefen ik al mijn sporten echter recreatief.</SubTitle>
+          {aboutMe.map((line, index) => (
+            <SubTitle key={index}>{line}</SubTitle>
+          ))}
         </Col>
       </CustomRow>
     </>
