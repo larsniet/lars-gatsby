@@ -20,6 +20,7 @@ const { colors } = theme
 
 const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
   const nextProjectUrl = `/projects/${project.next.slug}`
+  const projectDescr = project.description.split("\n");
 
   const bg = `
     center / cover   /* position / size */
@@ -78,7 +79,9 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
             </Row>
           </NormalCol>
           <NormalCol md={5}>
-            <p>{project.description}</p>
+            {projectDescr.map((line, index) => (
+              <p style={{ marginBottom: "20px" }} key={index}>{line}</p>
+            ))}
           </NormalCol>
         </Row>
       </ProjectOverview>
@@ -95,7 +98,7 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
       </NextProjectLink>
     </ProjectContainer>
   )
-} 
+}
 
 const Project: React.FC<ProjectProps> = ({ pageContext: projectShell, data }) => {
   const { project, next } = data;
