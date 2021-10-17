@@ -1,7 +1,8 @@
 import React from "react"
 import { Row, Col, NormalCol } from '../lib/Grid'
 import { ProjectPreview } from '../components/ProjectPreview/ProjectPreview'
-import Lottie from 'react-lottie'
+// import lottie from 'lottie-web'
+import Lottie from "react-lottie";
 import * as animationData from '../images/lineAnimation.json'
 import styled from 'styled-components'
 import { graphql } from "gatsby"
