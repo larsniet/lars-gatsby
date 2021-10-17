@@ -4,6 +4,7 @@ import { Row, Col, NormalCol } from '../../lib/Grid';
 import { IconContext } from "@react-icons/all-files";
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 import {
   FooterContainer,
   WaveContainer,
@@ -42,6 +43,7 @@ const Footer: React.FC<FooterProps> = () => {
               <ContactMe>Om meer te weten te komen, of voor eventuele samenwerkingen, <a href="mailto:lvdnbusiness@icloud.com" target="_blank">laat een mailtje achter</a> of vindt me op social media.</ContactMe>
               <IconContext.Provider value={{ color: "white", size: "2em" }}>
                 <SocialsContainer>
+                  <a href="https://www.linkedin.com/in/lars-van-der-niet-055546182/" target="_blank" rel="noopener" aria-label="LinkedIn"><FaLinkedin /></a>
                   <a href="https://www.instagram.com/lvdniet/" target="_blank" rel="noopener" aria-label="Instagram"><FaInstagram /></a>
                   <a href="https://twitter.com/larsvdniet" target="_blank" rel="noopener" aria-label="Twitter"><FaTwitter /></a>
                 </SocialsContainer>
