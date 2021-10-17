@@ -54,7 +54,7 @@ export const MobileNavWrapper = styled(motion.nav) <MobileNavWrapperProps>`
     top: 0;
     right: 0;
     bottom: 0;
-    width: 280px;
+    width: 70%;
     z-index: 99;
     pointer-events: none;
 
@@ -77,7 +77,7 @@ export const MobileNavBackground = styled(motion.div) <MobileNavBackgroundProps>
 export const sidebar = (dimensions) => {
     return {
         open: {
-            clipPath: `circle(${dimensions[1] + 200}px at ${dimensions[0] - 150}px ${dimensions[1] - 65}px)`,
+            clipPath: `circle(${dimensions[1] + 200}px at ${dimensions[0] / 100 * 70}px ${dimensions[1] - 65}px)`,
             transition: {
                 type: "spring",
                 stiffness: 40,
@@ -85,7 +85,7 @@ export const sidebar = (dimensions) => {
             }
         },
         closed: {
-            clipPath: `circle(30px at ${dimensions[0] - 155}px ${dimensions[1] - 65}px)`,
+            clipPath: `circle(30px at ${dimensions[0] / 100 * 70 - 60}px ${dimensions[1] - 65}px)`,
             transition: {
                 delay: 0.2,
                 type: "spring",
