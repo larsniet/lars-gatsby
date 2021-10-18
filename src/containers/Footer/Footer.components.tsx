@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import theme from '../../styles/theme'
 
-const { colors, mediaQueryMin } = theme;
+const { colors, mediaQueryMin, containerWidth } = theme;
 
 export const FooterContainer = styled.footer`
     position: relative;
@@ -38,15 +38,13 @@ export const CallToAction = styled.h2`
 
 export const ContactMe = styled.h3`
     color: #fff;
-    letter-spacing: normal;
-    font-weight: 100;
-    margin-top: 1em;
+    font-weight: 300;
+    margin-top: 2.8em;
     line-height: 1.3em;
-    font-size: 23px;
+    font-size: 24px;
 
-    @media (${mediaQueryMin.tablet}) {
-        margin-top: 3.4em;
-        letter-spacing: .1rem;
+    @media(max-width: ${containerWidth.tablet}) {
+        margin-top: 0;
         font-size: 18px;
     }
 
