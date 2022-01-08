@@ -160,7 +160,7 @@ module.exports = {
                             return allDatoCmsProject.nodes.map((node) => {
                                 return Object.assign({}, node.frontmatter, {
                                     title: node.title,
-                                    pubDate: node.meta.publishedAt,
+                                    date: node.meta.publishedAt,
                                     description: node.description,
                                     url: `${site.siteMetadata.siteUrl}/projects/${node.slug}`,
                                     guid: `${site.siteMetadata.siteUrl}/projects/${node.slug}`,
