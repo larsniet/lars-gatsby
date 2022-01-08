@@ -139,6 +139,50 @@ module.exports = {
                 },
             },
         },
+        {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                {
+                  site {
+                    siteMetadata {
+                      title
+                      description
+                      siteUrl
+                      site_url: siteUrl
+                    }
+                  }
+                }
+              `,
+                feeds: [
+                    {
+                        serialize: ({ query: { site, allDatoCmsProject } }) => {
+                            return allDatoCmsProject.nodes.map((node) => {
+                                return Object.assign({}, node.frontmatter, {
+                                    title: node.title,
+                                    description: node.description,
+                                    url: `${site.siteMetadata.siteUrl}/projects/${node.slug}`,
+                                    guid: `${site.siteMetadata.siteUrl}/projects/${node.slug}`,
+                                });
+                            });
+                        },
+                        query: `{
+                            allDatoCmsProject {
+                              nodes {
+                                  title
+                                  slug
+                                  company
+                                  description
+                                }
+                            }
+                        }`,
+                        output: '/rss.xml',
+                        title: 'Larsvanderniet.nl XML Feed',
+                        match: '^/projects/',
+                    },
+                ],
+            },
+        },
         'gatsby-plugin-styled-components',
         'gatsby-plugin-gatsby-cloud',
         'gatsby-plugin-image',
@@ -146,6 +190,6 @@ module.exports = {
         'gatsby-transformer-remark',
         'gatsby-plugin-mdx',
         'gatsby-transformer-sharp',
-        'gatsby-plugin-netlify'
+        'gatsby-plugin-netlify',
     ],
 };
