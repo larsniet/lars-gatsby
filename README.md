@@ -13,10 +13,6 @@
 
 # Lars van der Niet
 
-[![crates.io][crates.io-badge]][crates.io]
-[![Downloads][downloads-badge]][releases]
-[![Built with Nix][builtwithnix-badge]][builtwithnix]
-
 Larsvanderniet.nl is a **portfolio website**, created by Lars van der Niet.
 
 It's a [GatsbyJS](https://www.gatsbyjs.com/) website and uses [DatoCMS](https://www.datocms.com/) as backend. Apart from the basic SEO stuff done within Gatsby, my application also hosts an [RSS feed](https://www.larsvanderniet.nl/rss.xml). This feed is updated automatically using a [cronjob](https://github.com/larsniet/larsniet/blob/main/.github/workflows/project-workflow.yml) in Github Actions which retrieves all current projects and displays them on my Github profile.
