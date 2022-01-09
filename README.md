@@ -1,54 +1,64 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+<!-- markdownlint-configure-file {
+  "MD013": {
+    "code_blocks": false,
+    "tables": false
+  },
+  "MD033": false,
+  "MD041": false
+} -->
 
-## 🚀 Quick start
+<div align="center">
 
-1.  **Create a Gatsby site.**
+<img alt="Larsvanderniet.nl favicon" width="50px" height="50px" src="https://github.com/larsniet/lars-gatsby/tree/main/media/favicon.png">
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+# Lars van der Niet
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+[![crates.io][crates.io-badge]][crates.io]
+[![Downloads][downloads-badge]][releases]
+[![Built with Nix][builtwithnix-badge]][builtwithnix]
 
-2.  **Start developing.**
+Larsvanderniet.nl is a **portfolio website**, created by Lars van der Niet.
 
-    Navigate into your new site’s directory and start it up.
+It's a [GatsbyJS](https://www.gatsbyjs.com/) website and uses [DatocCMS](https://www.datocms.com/) as backend. Apart from the basic SEO stuff done within Gatsby, my application also hosts a RSS feed at https://www.larsvanderniet.nl/rss.xml. This feed is updated automatically using a [cronjob](https://github.com/larsniet/larsniet/blob/main/.github/workflows/project-workflow.yml) in Github Actions which retrieves all current projects and displays them on my Github profile.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+[Installation](#installation) •
+[Configuration](#configuration)
 
-3.  **Open the code and start customizing!**
+<img alt="Larsvanderniet.nl screenshot" width="100%" src="https://github.com/larsniet/lars-gatsby/tree/main/media/larsvanderniet.png">
 
-    Your site is now running at http://localhost:8000!
+</div>
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+## Installation
 
-4.  **Learn more**
+### \_Step 1: Clone this repository
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Run the following command in your terminal to clone this repo.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```sh
+git clone https://github.com/larsniet/lars-gatsby.git
+```
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### \_Step 2: Install dependencies
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Open up a terminal within the folder where you cloned the repo and run the following command.
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```sh
+cd lars-gatsby && yarn install
+```
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Configuration
 
-## 🚀 Quick start (Gatsby Cloud)
+### Dato CMS
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+As Content Management System I chose [DatocCMS](https://www.datocms.com/). It's a user-friendly focused CMS which makes it really easy to understand how content is structured. Ofcourse I cannot give you access to my specific DatoCMS dashboard, so you'll have to do with a screenshot of my project-modal.
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+<img alt="Screenshot of project modal in DatoCMS" width="100%" src="https://github.com/larsniet/lars-gatsby/tree/main/media/modal.png">
+
+### Environment variables
+
+Environment variables can be used for configuration.
+They must be set before `yarn build` is called.
+
+-   `DATO_API_TOKEN`
+    -   Read only API token from DatoCMS.
+    -   Note: Using DatoCMS might be a bit confusing if you don't know GraphQL/GatsbyJS.
