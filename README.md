@@ -9,7 +9,7 @@
 
 <div align="center">
 
-<img alt="Larsvanderniet.nl favicon" width="50px" height="50px" src="https://github.com/larsniet/lars-gatsby/tree/main/media/favicon.png">
+<img alt="Larsvanderniet.nl favicon" width="50px" height="50px" src="https://github.com/larsniet/lars-gatsby/blob/main/media/favicon.png">
 
 # Lars van der Niet
 
@@ -24,7 +24,7 @@ It's a [GatsbyJS](https://www.gatsbyjs.com/) website and uses [DatocCMS](https:/
 [Installation](#installation) •
 [Configuration](#configuration)
 
-<img alt="Larsvanderniet.nl screenshot" width="100%" src="https://github.com/larsniet/lars-gatsby/tree/main/media/larsvanderniet.png">
+<img alt="Larsvanderniet.nl screenshot" width="100%" src="https://github.com/larsniet/lars-gatsby/blob/main/media/larsvanderniet.png">
 
 </div>
 
@@ -52,7 +52,7 @@ cd lars-gatsby && yarn install
 
 As Content Management System I chose [DatocCMS](https://www.datocms.com/). It's a user-friendly focused CMS which makes it really easy to understand how content is structured. Ofcourse I cannot give you access to my specific DatoCMS dashboard, so you'll have to do with a screenshot of my project-modal.
 
-<img alt="Screenshot of project modal in DatoCMS" width="100%" src="https://github.com/larsniet/lars-gatsby/tree/main/media/modal.png">
+<img alt="Screenshot of project modal in DatoCMS" width="100%" src="https://github.com/larsniet/lars-gatsby/blob/main/media/modal.png">
 
 ### Environment variables
 
