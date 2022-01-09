@@ -30,7 +30,7 @@ It's a [GatsbyJS](https://www.gatsbyjs.com/) website and uses [DatoCMS](https://
 
 ## Installation
 
-### \_Step 1: Clone this repository
+### Step 1: Clone this repository
 
 Run the following command in your terminal to clone this repo.
 
@@ -38,7 +38,7 @@ Run the following command in your terminal to clone this repo.
 git clone https://github.com/larsniet/lars-gatsby.git
 ```
 
-### \_Step 2: Install dependencies
+### Step 2: Install dependencies
 
 Open up a terminal within the folder where you cloned the repo and run the following command.
 
