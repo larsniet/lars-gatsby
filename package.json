@@ -1,12 +1,9 @@
 {
   "name": "lars-gatsby",
-  "version": "1.0.0",
-  "private": true,
-  "description": "lars-gatsby",
+  "version": "1.1.0",
+  "private": false,
+  "description": "This is a portfolio application build for and by Lars van der Niet, using GatsbyJS and DatoCMS. There are some cool features in this app like an XML feed and dynamic project creation.",
   "author": "Lars van der Niet",
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
     "dev": "gatsby develop",
     "start": "gatsby build && gatsby serve",
