@@ -66,3 +66,13 @@ If everything is linked correctly and adjusted to your needs, simply run the fol
 ```sh
 yarn start
 ```
+
+## License and restrictions
+
+This project is AGPL-3.0 licenced with certain restrictions for commercial use. These restrictions are as follows:
+
+The files in the content, static, src/pages and src/images folders are proprietary, unless stated otherwise on the top of the file.
+
+In short, this means that this project can be used under the AGPL-3.0 license, as long as all content is completely replaced, the styling has been modified and all trademarks have been removed, making sure all current branding and content has been removed.
+
+Exceptions can be made for these restrictions, but are only valid with written consent from Lars van der Niet. If you would like me to make an exception, please send an email to lvdnbusiness@icloud.com.

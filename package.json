@@ -2,6 +2,7 @@
   "name": "lars-gatsby",
   "version": "1.1.0",
   "private": false,
+  "license": "AGPL-3.0",
   "description": "This is a portfolio application build for and by Lars van der Niet, using GatsbyJS and DatoCMS. There are some cool features in this app like an XML feed and dynamic project creation.",
   "author": "Lars van der Niet",
   "scripts": {
