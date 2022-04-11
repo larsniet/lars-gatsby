@@ -48,6 +48,7 @@
     "react-grid-system": "^7.2.0",
     "react-helmet": "^6.1.0",
     "react-is": "^17.0.2",
+    "react-linkify": "^1.0.0-alpha",
     "react-pose": "^4.0.10",
     "react-redux": "^7.2.4",
     "react-wavify": "^1.5.3",

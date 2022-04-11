@@ -12,6 +12,7 @@ import {
 import { Row, NormalCol } from '../../lib/Grid'
 import { ProjectProps, InnerProjectProps } from './Project.types'
 import { TransitionState } from 'gatsby-plugin-transition-link'
+import Linkify from 'react-linkify'
 import { graphql } from "gatsby"
 import SEO from '../../layouts/SEO/SEO'
 
@@ -41,51 +42,52 @@ const InnerProject: React.FC<InnerProjectProps> = ({ project }) => {
   return (
     <ProjectContainer>
       <SEO title={project.company} description={project.title} keywords={project.title} />
-      <ProjectImageContainer>
-        <ProjectImage
-          Tag="section"
-          fluid={project.featuredphoto.fluid}
-          objectFit="cover"
-          backgroundColor={project.backgroundColor.hex}
-        />
-        <ProjectTextContainer>
-          <ProjectTitle>{project.title}</ProjectTitle>
-          <ProjectSub>{project.company}</ProjectSub>
-        </ProjectTextContainer>
-      </ProjectImageContainer>
+      <Linkify>
+        <ProjectImageContainer>
+          <ProjectImage
+            Tag="section"
+            fluid={project.featuredphoto.fluid}
+            objectFit="cover"
+            backgroundColor={project.backgroundColor.hex}
+          />
+          <ProjectTextContainer>
+            <ProjectTitle>{project.title}</ProjectTitle>
+            <ProjectSub>{project.company}</ProjectSub>
+          </ProjectTextContainer>
+        </ProjectImageContainer>
 
-      <ProjectOverview>
-        <Row justify="between">
-          <NormalCol md={6}>
-            <Row style={{ marginBottom: "2em" }}>
-              <NormalCol md={6}>
-                <h3>Overzicht</h3>
-              </NormalCol>
-              <NormalCol md={6}>
-                <p>{project.overview}</p>
-              </NormalCol>
-            </Row>
-            <Row style={{ marginBottom: "2em" }}>
-              <NormalCol md={6}>
-                <h3>Mijn Taken</h3>
-              </NormalCol>
-              <NormalCol md={6}>
-                <ul>
-                  {project.roles.value.document.children.map((role) => (
-                    <li key={role.children[0].value}><p>{role.children[0].value}</p></li>
-                  ))}
-                </ul>
-              </NormalCol>
-            </Row>
-          </NormalCol>
-          <NormalCol md={5}>
-            {projectDescr.map((line, index) => (
-              <p style={{ marginBottom: "20px" }} key={index}>{line}</p>
-            ))}
-          </NormalCol>
-        </Row>
-      </ProjectOverview>
-
+        <ProjectOverview>
+          <Row justify="between">
+            <NormalCol md={6}>
+              <Row style={{ marginBottom: "2em" }}>
+                <NormalCol md={6}>
+                  <h3>Overzicht</h3>
+                </NormalCol>
+                <NormalCol md={6}>
+                  <p>{project.overview}</p>
+                </NormalCol>
+              </Row>
+              <Row style={{ marginBottom: "2em" }}>
+                <NormalCol md={6}>
+                  <h3>Mijn Taken</h3>
+                </NormalCol>
+                <NormalCol md={6}>
+                  <ul>
+                    {project.roles.value.document.children.map((role) => (
+                      <li key={role.children[0].value}><p>{role.children[0].value}</p></li>
+                    ))}
+                  </ul>
+                </NormalCol>
+              </Row>
+            </NormalCol>
+            <NormalCol md={5}>
+              {projectDescr.map((line, index) => (
+                <p style={{ marginBottom: "20px" }} key={index}>{line}</p>
+              ))}
+            </NormalCol>
+          </Row>
+        </ProjectOverview>
+      </Linkify>
       <NextProjectLink
         cover
         direction="left"
