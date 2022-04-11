@@ -120,14 +120,15 @@ const index: React.FC<Props> = ({ data }) => {
 
   let leftCol = [];
   let rightCol = [];
-  let half = Math.round(projects.length / 2)
-  for (let i = 0; i < projects.length; i++) {
-    if (i >= half) {
-      rightCol.push(projects[i])
+  // For each project, push half of the projects to left columns 
+  // and the other half to right columns
+  projects.forEach((project, index) => {
+    if (index % 2 === 0) {
+      rightCol.push(project);
     } else {
-      leftCol.push(projects[i])
+      leftCol.push(project);
     }
-  }
+  });
 
   return (
     <>
