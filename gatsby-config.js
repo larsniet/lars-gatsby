@@ -28,9 +28,11 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-google-analytics',
+            resolve: `gatsby-plugin-google-gtag`,
             options: {
-                trackingId: 'G-3TK3C2FLSK',
+                trackingIds: [
+                    "G-3TK3C2FLSK"
+                ],
             },
         },
         {
