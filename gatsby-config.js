@@ -30,7 +30,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-google-analytics',
             options: {
-                trackingId: 'UA-190082437-1',
+                trackingId: 'G-3TK3C2FLSK',
             },
         },
         {
@@ -88,9 +88,9 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                host: 'https://www.larsvanderniet.nl',
+                host: 'https://larsvanderniet.nl',
                 sitemap:
-                    'https://www.larsvanderniet.nl/sitemap/sitemap-index.html',
+                    'https://larsvanderniet.nl/sitemap/sitemap-index.html',
                 policy: [{ userAgent: '*', allow: '/' }],
             },
         },

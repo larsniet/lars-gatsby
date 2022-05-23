@@ -1,5 +1,4 @@
 import React from 'react';
-import HeadScripts from '../../lib/getHeadScripts';
 import { GlobalStyles, TypographyClassStyling } from '../../styles/global-css';
 import { Main } from './DefaultLayout.components';
 import Container from '../../containers/Container';
@@ -10,7 +9,6 @@ import LayoutProps from './DefaultLayout.types';
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <HeadScripts />
       <GlobalStyles />
       <Navbar />
       <Main>
