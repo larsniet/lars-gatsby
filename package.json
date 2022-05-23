@@ -6,8 +6,8 @@
   "description": "This is a portfolio application build for and by Lars van der Niet, using GatsbyJS and DatoCMS. There are some cool features in this app like an XML feed and dynamic project creation.",
   "author": "Lars van der Niet",
   "scripts": {
-    "dev": "gatsby develop",
-    "start": "gatsby build && gatsby serve",
+    "dev": "gatsby telemetry --disable && gatsby develop",
+    "start": "gatsby build && gatsby telemetry --disable && gatsby serve",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
